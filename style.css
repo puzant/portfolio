@@ -1,6 +1,5 @@
-@import url("https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300");
 body {
-  font-family: 'Open Sans Condensed';
+  font-family: 'Open Sans Condensed', sans-serif;
   color: #fff;
   padding: 0;
   margin: 0;

@@ -35,5 +35,5 @@ $(window).scroll(function() {
 
   $('.btn-profile').click(function(e) {
     e.preventDefault();  //stop the browser from following
-    window.location.href = '_Resume.pdf';
+    window.location.href = '/assets/_Resume.pdf';
 });

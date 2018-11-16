@@ -10,6 +10,26 @@ body {
   margin: 0;
 }
 
+.section-title {
+  font-size: 22px;
+}
+
+hr {
+  border: 0;
+  margin: 1.35em auto;
+  max-width: 100%;
+  background-position: 50%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.fade {
+  height: 1px;
+  color: red;
+  background-image: -webkit-gradient(linear, left top, right top, from(rgba(255, 0, 0, 0)), color-stop(50%, red), to(rgba(255, 0, 0, 0)));
+  background-image: linear-gradient(90deg, rgba(255, 0, 0, 0), red 50%, rgba(255, 0, 0, 0) 100%);
+}
+
 #return-to-top {
   position: fixed;
   bottom: 20px;
@@ -48,7 +68,7 @@ body {
 }
 
 .header-platform-wrapper {
-  background-image: url("https://images.unsplash.com/photo-1432821579285-1b649e5b1ce3?ixlib=rb-0.3.5&s=0887bc03945a070a20780f0034c26c4f&auto=format&fit=crop&w=750&q=80");
+  background-image: url("https://images.unsplash.com/photo-1524439188326-e47322d1cef2?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=0dbe054f4e932dc215be3637ff958cd0&auto=format&fit=crop&w=750&q=80");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -83,6 +103,8 @@ body {
 .header-platform-wrapper .header .nav-itemes .nav-link a {
   text-decoration: none;
   color: #fff;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
 }
 
 .header-platform-wrapper .header .nav-itemes .nav-link:hover {
@@ -153,7 +175,7 @@ body {
 .services {
   padding: 1px;
   height: 100%;
-  background-color: #111;
+  background-color: #202020;
   text-align: center;
 }
 
@@ -188,22 +210,6 @@ body {
 .services .profile-headline {
   font-size: 1.2rem;
   text-align: center;
-}
-
-.services hr {
-  border: 0;
-  margin: 1.35em auto;
-  max-width: 100%;
-  background-position: 50%;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-}
-
-.services .fade {
-  height: 1px;
-  color: red;
-  background-image: -webkit-gradient(linear, left top, right top, from(rgba(255, 0, 0, 0)), color-stop(50%, red), to(rgba(255, 0, 0, 0)));
-  background-image: linear-gradient(90deg, rgba(255, 0, 0, 0), red 50%, rgba(255, 0, 0, 0) 100%);
 }
 
 .services .skills-wrapper {
@@ -249,7 +255,7 @@ body {
 
 .portfolio {
   text-align: center;
-  background-color: #111;
+  background-color: #202020;
   padding: 1px;
 }
 
@@ -302,7 +308,7 @@ body {
   bottom: 0;
   left: 0;
   padding: 1rem;
-  background-color: #111;
+  background-color: #202020;
   text-align: left;
 }
 

@@ -25,7 +25,7 @@ $(window).scroll(function() {
     var that_offset = $(that_id).offset();
     var offset_diff = Math.abs(that_offset.top - this_offset.top);
 
-    var base_speed  = 100; // Time in ms per 1,000 pixels
+    var base_speed  = 300; // Time in ms per 1,000 pixels
     var speed       = (offset_diff * base_speed) / 400;
 
     $("html,body").animate({

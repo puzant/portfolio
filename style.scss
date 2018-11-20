@@ -80,7 +80,7 @@ hr {
   background-position: center;
   height: 25rem;
   @media(max-width: 720px) {
-      height: 30rem;
+      height: 32rem;
   }
 .header {
   display: flex;
@@ -262,6 +262,10 @@ hr {
     }
     span {
         margin: 10px;
+        a {
+          color: #fff;
+          text-decoration: none;
+        }
     }
     @media (max-width: 720px) {
         span {

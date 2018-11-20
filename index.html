@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.2/dist/jquery.fancybox.min.css" />
     <link rel="stylesheet" href="animate.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <title>Portfolio</title>
 </head>
@@ -29,7 +30,7 @@
           </div>
         </div>
 
-        <div class="main">
+        <div class="main" data-aos="zoom-in" data-aos-duration="1000">
           <h1>Let's Work Together</h1>
           <div class="description">
               <p>Hey there, I'm a Full Stack developer specialized in JavaScript technologies, and in Web design, creating Web apps with the latest modern web development tools, and smacking the keyboard until something awesome comes out. when I'm not viciously writing code, I spend the rest of the time playing Senbonzakura on my Guitar </p>
@@ -43,7 +44,7 @@
         <div class="services">
           <h2 class="section-title">Web Development and Desgin</h2>
 
-          <div class="technologies-list">
+          <div class="technologies-list" data-aos="fade-up" data-aos-duration="1000">
 
             <div class="tool">
               <img src="https://img.icons8.com/color/96/ffffff/wordpress.png">
@@ -69,14 +70,14 @@
           <h3 class="section-title">List of Skills <i class="fas fa-code"></i></h3>
 
           <div class="skills-wrapper">
-              <div class="frontEnd">
+              <div class="frontEnd" data-aos="zoom-in-up" data-aos-duration="1000">
                   <h3>Front-End Skills</h3>
                   <div class="skill"><span class="white">HTML5</span><span>90%</span></div>
                   <div class="skill"><span class="white">CSS3</span><span>90%</span></div>
                   <div class="skill"><span class="white">VueJS</span><span>70%</span></div>
                   <div class="skill"><span class="white">AngularJs</span><span>85%</span></div>
               </div>
-              <div class="BackEnd">
+              <div class="BackEnd" data-aos="zoom-in-up" data-aos-duration="1000">
                   <h3>Back-End Skills</h3>
                     <div class="skill"><span class="white">NodeJs</span><span>80%</span></div>
                     <div class="skill"><span class="white">PHP</span><span>65%</span></div>
@@ -91,7 +92,7 @@
         <a id="portfolio-section" href=""></a>
         <div class="portfolio">
             <h3 class="section-title">Projects Show Case</h3>
-            <div class="gallery">
+            <div class="gallery" data-aos="slide-right" data-aos-duration="1000" data-aos-mirror="true" data-aos-offset="200">
                 <div class="project">
                         <a data-fancybox="gallery" href="assets/project-1.png"><img src="assets/project-1.png" alt=""></a>
                         <p>Password Generator using Vanila JavaScript</p>
@@ -115,7 +116,7 @@
         <a id="contact-section" href=""></a>
         <div class="footer">
             <span class="footer-header">If you have a project in mind, Let's meet and have a cup of coffe.</span>
-            <span>Email: PBAKJEJIAN@hotmail.com,</span>
+            <span><a href="mailto:Email: PBAKJEJIAN@hotmail.com">Email: PBAKJEJIAN@hotmail.com</a>,</span>
             <span>Telephone: +961 76 156 119,</span>
             <span>Location: Beirut, Lebanon</span>
             <div class="links">
@@ -128,6 +129,7 @@
 
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.2/dist/jquery.fancybox.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="app.js"></script>
 </body>
 </html>

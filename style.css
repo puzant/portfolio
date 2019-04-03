@@ -77,7 +77,7 @@ hr {
 
 @media (max-width: 720px) {
   .header-platform-wrapper {
-    height: 32rem;
+    height: 34rem;
   }
 }
 
@@ -112,6 +112,7 @@ hr {
 
 .header-platform-wrapper .header .nav-itemes .nav-link:hover {
   cursor: pointer;
+  opacity: 1;
 }
 
 .header-platform-wrapper .header .platforms .platform-link {
@@ -164,11 +165,16 @@ hr {
 }
 
 .header-platform-wrapper .main .description .btn-profile {
-  background-color: #f73c2e;
+  background-color: #a07c8d;
   border: none;
   color: #fff;
   padding: 12px;
-  border-radius: 2px;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 13px;
+  -webkit-animation: beat .5s infinite alternate;
+          animation: beat .5s infinite alternate;
 }
 
 .header-platform-wrapper .main .description .btn-profile:hover {
@@ -378,6 +384,20 @@ hr {
   60% {
     -webkit-transform: translateY(-15px);
     transform: translateY(-15px);
+  }
+}
+
+@-webkit-keyframes beat {
+  to {
+    -webkit-transform: scale(1.2);
+            transform: scale(1.2);
+  }
+}
+
+@keyframes beat {
+  to {
+    -webkit-transform: scale(1.2);
+            transform: scale(1.2);
   }
 }
 /*# sourceMappingURL=style.css.map */

@@ -35,7 +35,8 @@ $(window).scroll(function() {
     }, speed);
   });
 
-  $('.btn-profile').click(function(e) {
-    e.preventDefault();  //stop the browser from following
-    window.location.href = '/assets/_Resume.pdf';
-});
+  $('.btn-profile').on('click', function() {
+    $('html, body').animate({
+      scrollTop: $("#services-section").offset().top
+  }, 1000);
+  })

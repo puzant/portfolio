@@ -80,7 +80,7 @@ hr {
   background-position: center;
   height: 25rem;
   @media(max-width: 720px) {
-      height: 32rem;
+      height: 34rem;
   }
 .header {
   display: flex;
@@ -101,6 +101,7 @@ hr {
     }
     &:hover {
       cursor: pointer;
+      opacity: 1;
     }
   }
   .platforms  .platform-link {
@@ -144,11 +145,15 @@ hr {
     padding: 5px;
     margin: 0 auto;
     .btn-profile {
-      background-color: #f73c2e;
+      background-color: #a07c8d;
       border: none;
       color: #fff;
       padding: 12px;
-      border-radius: 2px;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      font-size: 13px;
+      animation: beat .5s infinite alternate;
       &:hover {
         cursor: pointer;
       }
@@ -305,4 +310,8 @@ hr {
 		-ms-transform:     translateY(-15px);
 		transform:         translateY(-15px)
 	}
+}
+
+@keyframes beat{
+	to { transform: scale(1.2); }
 }

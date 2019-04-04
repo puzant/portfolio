@@ -268,7 +268,11 @@ hr {
 
 .portfolio {
   text-align: center;
-  background-color: #202020;
+  background-color: #f8002f;
+  background-image: linear-gradient(326deg, #5a0202 0%, #000a11 74%);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   padding: 1px;
 }
 
@@ -302,6 +306,7 @@ hr {
 }
 
 .portfolio .gallery .project img {
+  border-radius: 5px;
   opacity: .5;
   -webkit-transition: .5s;
   transition: .5s;

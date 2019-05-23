@@ -1,3 +1,4 @@
+![](assets/portfolio_image.png)
 # portfolio
 
 - simple portfolio website with projet show case, built with CSS Flexbox and Sass

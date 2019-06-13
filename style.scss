@@ -80,7 +80,7 @@ hr {
   background-position: center;
   height: 25rem;
   @media(max-width: 720px) {
-      height: 34rem;
+      height: 30rem;
   }
 .header {
   display: flex;
@@ -200,6 +200,9 @@ hr {
       justify-content: center;
       h3 {
           margin: 0;
+      }
+      img {
+        height: 40px;
       }
       div {
           margin: 10px;

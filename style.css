@@ -1,5 +1,10 @@
+@font-face {
+  font-family: 'AvenirNext';
+  src: url("assets/fonts/AvenirNext-Bold/eot") format("eot");
+}
+
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'AvenirNext';
   color: #fff;
   padding: 0;
   margin: 0;
@@ -153,7 +158,7 @@ hr {
 
 .header-platform-wrapper .main .description {
   max-width: 500px;
-  font-size: 18px;
+  font-size: 20px;
   line-height: 24px;
   padding: 5px;
   margin: 0 auto;
@@ -405,22 +410,3 @@ hr {
   }
 }
 /*# sourceMappingURL=style.css.map */
-
-
-/** custom scroll bar styles **/
-::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-    border-radius: 10px;
-    background-color: rgb(169, 169, 169);
-}
-
-::-webkit-scrollbar {
-    width: 12px;
-    background-color: #F5F5F5;
-}
-
-::-webkit-scrollbar-thumb {
-    border-radius: 10px;
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
-    background-color: #555;
-}

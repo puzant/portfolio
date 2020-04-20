@@ -136,6 +136,11 @@ hr {
   color: #fff;
 }
 
+.header-platform-wrapper .header .platforms .platform-link, a:hover {
+  color: #c2bcc2 !important;
+  transition: 0.5s;
+}
+
 .header-platform-wrapper .header .platforms .platform-link a img {
   height: 30px;
 }

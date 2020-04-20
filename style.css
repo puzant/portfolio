@@ -230,6 +230,11 @@ hr {
           justify-content: center;
 }
 
+
+.services .skills-wrapper .end .spec-logo {
+  margin-top: 10px;
+}
+
 .services .skills-wrapper h3 {
   margin: 0;
 }

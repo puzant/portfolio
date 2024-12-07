@@ -133,6 +133,10 @@ export default {
       align-items: start;
       cursor: pointer;
 
+      @media (max-width: 768px) {
+        width: 100%;
+      }
+
       img:last-child {
         border: 1px solid var(--white);
         border-radius: 4px;

@@ -2,7 +2,6 @@
   <div class="navigation">
     <img src="@/assets/home-icon.svg" alt="">
     <img src="@/assets/project-icon.svg" alt="">
-    <img src="@/assets/suitcase-icon.svg" alt="">
     <img src="@/assets/skill-icon.svg" alt="">
     <img src="@/assets/write-icon.svg" alt="">
   </div>

@@ -1,0 +1,68 @@
+@font-face {
+  font-family: 'Poppins';
+  src: url('./assets/fonts/Poppins-Regular.ttf') format('tff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+:root {
+  --primary-background: #151312;
+  --white: #fff;
+  --black: #111;
+  --secondary-text: #998F8F;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body,
+h1, h2, h3, h4, h5, h6,
+p, blockquote, pre,
+dl, dd,
+ol, ul,
+figure, hr,
+fieldset, legend,
+button, input, textarea {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 80%;
+  margin: 0 auto;
+  background-color: var(--primary-background);
+  font-family: 'Poppins', sans-serif;
+  @media (max-width: 768px) {
+    width: 90%; 
+  }
+}
+
+.mainContainer {
+  .sidebarItemsContainer {
+    display: flex;
+    align-items: start;
+    gap: 100px;
+    margin: 60px 0;
+    padding: 20px;
+    @media (max-width: 768px) {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      gap: 30px;
+      flex-direction: column;
+    }
+  }
+
+  .mainSections {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+    @media (max-width: 768px) {
+      gap: 20px;
+    }
+  }
+}

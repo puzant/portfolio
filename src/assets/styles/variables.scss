@@ -1,0 +1,29 @@
+$primaryBackgroundColor: #151312;
+$secondaryBackgroundColor: #1C1A19;
+$primaryColor: #998f8f;
+$secondaryColor: #b6b4bd33;
+
+$white: #fff;
+$black: #111;
+$orange: #f46c38;
+$error: #d9534f;
+
+$inputFocus: 0 0 5px #fc8a1e80;
+$inputErrorFocus: 0 0 5px #f6370c80;
+$labelColor: #888;
+
+@mixin responsive-flex-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+@mixin liftEffect {
+  &:hover {
+    transform: translateY(-5px);
+    background-color: #1A1817;
+    box-shadow: 0 8px 15px #00000033;
+  }
+}

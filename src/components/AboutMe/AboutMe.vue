@@ -27,16 +27,16 @@
       </div>
 
       <div class="talkBtn">
-        <img src="@/assets/stack-icon.svg" alt="">
+        <img src="@/assets/icons/stack-icon.svg" alt="">
         
-        <div>
+        <a href="#contact">
           <span class="line-break">Let’s build something</span>
           
-          <div class="flex-container">
+          <div class="workTogetherBox">
             <span>extraordinary together!</span>
-            <img src="@/assets/arrow-down-icon.svg" alt="">
+            <img src="@/assets/icons/arrow-down-icon.svg" alt="">
           </div>
-        </div>
+        </a>
       </div>
     </div>
 
@@ -51,6 +51,8 @@ export default {
 </script>
 
 <style scoped lang="scss">
+@import '@/assets/styles/variables';
+
 .container {
   .title {
     font-size: clamp(40px, 6vw, 90px);
@@ -58,15 +60,15 @@ export default {
     
     font-weight: bold;
     p:first-child {
-      color: #fff;
+      color: $white;
     }
     p:last-child {
-      color: #b6b4bd33;
+      color: $secondaryColor;
     }
   }
 
   .intro {
-    color: #998f8f;
+    color: $primaryColor;
     line-height: 1.6;
     margin: 30px 0;
     
@@ -83,11 +85,7 @@ export default {
   }
 
   .stats-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 20px;
+    @include responsive-flex-container;
     margin: 60px 0;
 
     @media (max-width: 768px) {
@@ -101,15 +99,15 @@ export default {
       div {
         display: flex;
         flex-direction: column;
-        color: var(--white);
+        color: $white;
       
         span:first-child {
-          color: var(--white);
+          color: $white;
           font-size: clamp(40px, 6vw, 70px);
         }
       
         span {
-          color: #998f8f;
+          color: $primaryColor;
         }
       }
     }
@@ -119,28 +117,33 @@ export default {
     }
 
     .talkBtn {
-      background-image: url('@/assets/shape-3.svg');
+      background-image: url('@/assets/icons/shape-3.svg');
       padding: 20px;
       margin: 20px 0;
       border-radius: 12px;
       width: fit-content;
       font-size: 20px;
-      background-color: #f46c38;
-      color: var(--white);
+      background-color: $orange;
+      color: $white;
       display: flex;
       flex-direction: column;
       gap: 10px;
       align-items: start;
       cursor: pointer;
-
+      
       @media (max-width: 768px) {
         width: 100%;
       }
 
       img:last-child {
-        border: 1px solid var(--white);
+        border: 1px solid $white;
         border-radius: 4px;
         transition: transform 0.3s;
+      }
+
+      a {
+        text-decoration: none;
+        color: $white;
       }
 
       &:hover img:last-child {
@@ -149,12 +152,8 @@ export default {
     }
   }
 
-  .flex-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 20px;
+  .workTogetherBox {
+    @include responsive-flex-container;
   }
 }
 </style>

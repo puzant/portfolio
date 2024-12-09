@@ -1,5 +1,5 @@
 <template>
-  <div class="contactForm">
+  <div class="contactForm" id="contact">
     <div class="title">
       <p>LET'S WORK</p>
       <p>TOGETHER</p>
@@ -28,7 +28,7 @@
         
       <button type="submit">
         <span>Send</span>
-        <img src="@/assets/send-icon.svg" alt="">
+        <img src="@/assets/icons/send-icon.svg" alt="">
       </button>
     </form>
   </div>
@@ -76,16 +76,18 @@ export default {
 </script>
 
 <style scoped lang="scss">
+@import '@/assets/styles/variables';
+
 .contactForm {
   .title {
     font-size: clamp(40px, 6vw, 90px);
     font-weight: bold;
 
     p:first-child {
-      color: #fff;
+      color: $white;
     }
     p:last-child {
-      color: #b6b4bd33;
+      color: $secondaryColor;
     }
   }
 
@@ -99,7 +101,7 @@ export default {
     }
 
     .error {
-      color: #d9534f;
+      color: $error;
       font-size: 0.875rem;
       margin-top: 0.25rem;
       display: block;
@@ -121,7 +123,7 @@ export default {
         gap: 10px;
 
         label {
-          color: #888;
+          color: $labelColor;
           font-size: 12px;
         }
 
@@ -129,20 +131,20 @@ export default {
           padding: 12px;
           border-radius: 8px;
           border: 1px solid transparent;
-          background-color: #b6b4bd33;
-          color: var(--white);
+          background-color: $secondaryColor;
+          color: $white;
           transition: border-color 0.5s ease, box-shadow 0.3s ease;
 
           &:focus {
             outline: none;
-            border-color: #f46c38;
-            box-shadow: 0 0 5px rgba(252, 138, 30, 0.5);
+            border-color: $orange;
+            box-shadow: $inputFocus;
           }
         }
 
         input.error-input {
-          border-color: #d9534f;
-          box-shadow: 0 0 5px rgba(252, 138, 30, 0.5);
+          border-color: $error;
+          box-shadow: $inputErrorFocus;
         }
       }
     }
@@ -154,27 +156,27 @@ export default {
       gap: 10px;
 
       label {
-        color: #888;
+        color: $labelColor;
         font-size: 12px;
       }
 
       textarea {
-        background-color: #b6b4bd33;
+        background-color: $secondaryColor;
         padding: 12px;
         border-radius: 8px;
-        color: var(--white);
+        color: $white;
         border: 1px solid transparent;
         transition: border-color 0.5s ease, box-shadow 0.3s ease;
         &:focus {
           outline: none;
-          border-color: #f46c38;
-          box-shadow: 0 0 5px rgba(252, 138, 30, 0.5);
+          border-color: $orange;
+          box-shadow: $inputFocus;
         }
       }
 
       textarea.error-input {
-        border-color: #d9534f;
-        box-shadow: 0 0 5px rgba(246, 55, 12, 0.5);
+        border-color: $error;
+        box-shadow: $inputErrorFocus;
 
       }
     }
@@ -185,9 +187,9 @@ export default {
       justify-content: center;
       gap: 4px;
       border: none;
-      background-color: #f46c38;
+      background-color: $orange;
       padding: 10px 15px;
-      color: var(--white);
+      color: $white;
       border-radius: 8px;
       cursor: pointer;
       font-size: 18px;

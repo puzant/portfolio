@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div id="stories" class="container">
     <div class="title">
       <p>RECENT</p>
       <p>PUBLICATIONS</p>
@@ -9,7 +9,7 @@
       <a class="story" v-for="story in stories" :key="story" :href="story.link" target="_blank">
         <div class="titleContainer">
           <p>{{ story.title }}</p>
-          <img class="arrow" src="@/assets/arrow-up-right.svg" alt="">
+          <img class="arrow" src="@/assets/icons/arrow-up-right.svg" alt="">
         </div>
 
         <p>{{ story.preview }}</p>
@@ -91,16 +91,18 @@ export default {
 </script>
 
 <style scoped lang="scss">
+@import '@/assets/styles/variables';
+
 .container {
   .title {
     font-size: clamp(40px, 6vw, 90px);
     line-height: 1;
     font-weight: bold;
     p:first-child {
-      color: #fff;
+      color: $white;
     }
     p:last-child {
-      color: #b6b4bd33;
+      color: $secondaryColor;
     }
   }
 
@@ -122,12 +124,7 @@ export default {
       padding: 30px 15px;
       cursor: pointer;
 
-      &:hover {
-        transform: translateY(-5px);
-        background-color: #1A1817;
-        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
-      }
-
+      @include liftEffect;
 
       .titleContainer {
         margin: 10px 0;
@@ -136,13 +133,13 @@ export default {
         align-items: start;
 
         p {
-          color: #fff;
+          color: $white;
           font-size: 26px;
         }
       }
 
       p {
-        color: #998f8f;
+        color: $primaryColor;
       }
 
       div {

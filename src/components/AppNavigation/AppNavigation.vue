@@ -1,34 +1,37 @@
 <template>
   <div class="navigation">
-    <div class="tooltip">
-      <img src="@/assets/home-icon.svg" alt="">
-      <div class="tooltip-text">Home</div>
-    </div>
-    <div class="tooltip">
-      <img src="@/assets/project-icon.svg" alt="">
-      <div class="tooltip-text">Projects</div>
-    </div>
-    <div class="tooltip">
-      <img src="@/assets/skill-icon.svg" alt="">
-      <div class="tooltip-text">Skills</div>
-    </div>
-    <div class="tooltip">
-      <img src="@/assets/write-icon.svg" alt="">
-      <div class="tooltip-text">Publication</div>
-    </div>
+    
+    <a v-for="nav in navigation" :href="nav.href" :key="nav.name">
+      <div class="tooltip">
+        <img :src="nav.icon" alt="">
+        <div class="tooltip-text">{{ nav.name }}</div>
+      </div>
+    </a>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'AppNavigation'
+  name: 'AppNavigation',
+  data() {
+    return {
+      navigation: [
+        {href: '#home', name: 'Home', icon: require('@/assets/icons/home-icon.svg')},
+        {href: '#projects', name: 'Projects', icon: require('@/assets/icons/project-icon.svg')},
+        {href: '#skills', name: 'Skills', icon: require('@/assets/icons/skill-icon.svg')},
+        {href: '#stories', name: 'Publications', icon: require('@/assets/icons/write-icon.svg')},
+      ]
+    }
+  }
 }
 
 </script>
 
 <style scoped lang="scss">
+@import '@/assets/styles/variables';
+
 .navigation {
-  background-color: #1C1A19;
+  background-color: $secondaryBackgroundColor;
   padding: 10px 20px;
   display: flex;
   justify-content: space-between;
@@ -48,8 +51,8 @@ export default {
 
     .tooltip-text {
       visibility: hidden;
-      background-color: #1C1A19;
-      color: #fff;
+      background-color: $secondaryBackgroundColor;
+      color: $white;
       text-align: center;
       padding: 7px 12px;
       border-radius: 12px;
@@ -59,7 +62,7 @@ export default {
       left: 50%;
       transform: translateX(-50%);
       opacity: 0;
-      transition: opacity 0.3s;
+      transition: opacity 1s;
     }
 
   }

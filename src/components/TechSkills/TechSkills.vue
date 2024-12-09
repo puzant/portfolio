@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div id="skills" class="container">
     <div class="title">
       <p>TECH</p>
       <p>SKILLS</p>
@@ -20,14 +20,14 @@ export default {
   data() {
     return {
       skills: [
-        {name: 'React', icon: require('@/assets/react-logo.svg')},
-        {name: 'Vue', icon: require('@/assets/vue-logo.svg')},
-        {name: 'Tailwind', icon: require('@/assets/tailwind-logo.svg')},
-        {name: 'NodeJs', icon: require('@/assets/nodejs-logo.svg')},
-        {name: 'Mysql', icon: require('@/assets/mysql-logo.svg')},
-        {name: 'Mongodb', icon: require('@/assets/mongodb-logo.svg')},
-        {name: 'Typescript', icon: require('@/assets/typescript-logo.svg')},
-        {name: 'Python', icon: require('@/assets/python-logo.svg')},
+        {name: 'React', icon: require('@/assets/icons/react-logo.svg')},
+        {name: 'Vue', icon: require('@/assets/icons/vue-logo.svg')},
+        {name: 'Tailwind', icon: require('@/assets/icons/tailwind-logo.svg')},
+        {name: 'NodeJs', icon: require('@/assets/icons/nodejs-logo.svg')},
+        {name: 'Mysql', icon: require('@/assets/icons/mysql-logo.svg')},
+        {name: 'Mongodb', icon: require('@/assets/icons/mongodb-logo.svg')},
+        {name: 'Typescript', icon: require('@/assets/icons/typescript-logo.svg')},
+        {name: 'Python', icon: require('@/assets/icons/python-logo.svg')},
       ]
     }
   }
@@ -35,6 +35,8 @@ export default {
 </script>
 
 <style scoped lang="scss">
+@import '@/assets/styles/variables';
+
 .container {
   .title {
     font-size: clamp(40px, 6vw, 90px);
@@ -42,10 +44,10 @@ export default {
     
     font-weight: bold;
     p:first-child {
-      color: #fff;
+      color: $white;
     }
     p:last-child {
-      color: #b6b4bd33;
+      color: $secondaryColor;
     }
   }
 
@@ -63,7 +65,7 @@ export default {
       display: flex;
       align-items: center;
       gap: 10px;
-      color: var(--white);
+      color: $white;
       transition: 0.3s ease, box-shadow 0.3s ease;
       padding: 8px;
       border-radius: 16px;
@@ -74,7 +76,7 @@ export default {
       }
 
       .skillIcon {
-        background-color: #fff;
+        background-color: $white;
         width: 60px;
         height: 60px;
         border-radius: 10px;

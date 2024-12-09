@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div id="projects" class="container">
     <div class="title">
       <p>RECENT</p>
       <p>PROJECTS</p>
@@ -19,7 +19,7 @@
           </div>
         </div>
       
-        <img class="arrow" src="@/assets/arrow-up-right.svg" alt="">
+        <img class="arrow" src="@/assets/icons/arrow-up-right.svg" alt="">
       </a>
     </div>
 
@@ -43,16 +43,18 @@ export default {
 </script>
 
 <style scoped lang="scss">
+@import '@/assets/styles/variables';
+
 .container {
   .title {
     font-size: clamp(40px, 6vw, 90px);
     line-height: 1;
     font-weight: bold;
     p:first-child {
-      color: #fff;
+      color: $white;
     }
     p:last-child {
-      color: #b6b4bd33;
+      color: $secondaryColor;
     }
   }
 
@@ -69,18 +71,14 @@ export default {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      color: var(--white);
+      color: $white;
       cursor: pointer;
       border-radius: 16px;
       transition: 0.3s ease, box-shadow 0.3s ease;
       padding: 20px 8px;
       text-decoration: none;
 
-      &:hover {
-        transform: translateY(-5px);
-        background-color: #1A1817;
-        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
-      }
+      @include liftEffect;
 
       .innerContainer {
         display: flex;
@@ -114,7 +112,7 @@ export default {
           font-size: 24px;
         }
         p:last-child {
-          color: #998f8f;
+          color: $primaryColor;
           margin: 5px 0;
         }
       }

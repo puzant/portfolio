@@ -1,12 +1,158 @@
 <template>
-  <div>
+  <div class="container">
+    <div class="title">
+      <p>RECENT</p>
+      <p>PUBLICATIONS</p>
+    </div>
+
+    <div class="publicationsContainer">
+      <a class="story" v-for="story in stories" :key="story" :href="story.link" target="_blank">
+        <div class="titleContainer">
+          <p>{{ story.title }}</p>
+          <img class="arrow" src="@/assets/arrow-up-right.svg" alt="">
+        </div>
+
+        <p>{{ story.preview }}</p>
+
+        <div>
+          <p>{{ story.publishedDate }}</p>
+          <p>{{ story.duration }} min read</p>
+        </div>
+      </a>
+    </div>
 
   </div>
 </template>
 
 <script>
+import { apiClient } from '@/apiClient/apiClient';
+
 export default {
   name: 'MyPublications',
-  
+  data() {
+    return {
+      stories: [
+        {
+          title: 'Efficient Data Fetching and Mutation in React with Generic Hooks and HOCs',
+          preview: 'In the ever-evolving landscape of web development, one constant remains: the need to interact with APIs. Whether you’re building web…',
+          publishedDate: 'Sep 5, 2023',
+          duration: '4',
+          link: 'https://medium.com/@puzant24/efficient-data-fetching-and-mutation-in-react-with-generic-hooks-and-hocs-37728b444ac8'
+        },
+        {
+          title: 'Building A Simple Images Carousel With ReactJs',
+          preview: 'Carousel allows multiple image & videos to be displayed in a nice & interactive way',
+          publishedDate: 'Feb 3, 2021',
+          duration: '4',
+          link: 'https://medium.com/@puzant24/building-a-simple-images-carousel-with-reactjs-377256bedc61'
+        },
+        {
+          title: 'Infinite Scroll With ReactJs & Redux',
+          preview: 'Infinite scroll has been widely used in today’s web & mobile apps, it simply loads data as you scroll down the page, this eliminated the…',
+          publishedDate: 'Jul 8, 2020',
+          duration: '3',
+          link: 'https://medium.com/@puzant24/infinite-scroll-with-reactjs-redux-23bccea01dd0'
+        }
+      ],
+      userId: null,
+      error: null
+    }
+  },
+  mounted() {
+    this.initializeData()
+  },
+  methods: {
+    async fetchUserId() {
+      const token = "2c4fe4df5fac61963a65b35f5bd8bc53329beb90a80e667965dad8afbc315188a";
+      const url = "/api/v1/me";
+
+      const response = await apiClient.fetchData(url, token);
+      return response?.data?.id;
+    },
+
+    async fetchPublications(userId) {
+      const token = "2c4fe4df5fac61963a65b35f5bd8bc53329beb90a80e667965dad8afbc315188a";
+
+      const url = `/api/v1/users/${userId}/publications`;
+      const response = await apiClient.fetchData(url, token);
+      return response?.data || [];
+    },
+
+    async initializeData() {
+      try {
+        this.userId = await this.fetchUserId();
+      } catch (error) {
+        this.error = error;
+        console.error(error);
+      }
+    },
+  }
 }
 </script>
+
+<style scoped lang="scss">
+.container {
+  .title {
+    font-size: clamp(40px, 6vw, 90px);
+    line-height: 1;
+    font-weight: bold;
+    p:first-child {
+      color: #fff;
+    }
+    p:last-child {
+      color: #b6b4bd33;
+    }
+  }
+
+  .publicationsContainer {
+    display: flex;
+    flex-direction: column;
+    margin: 20px 0;
+    
+    @media (max-width: 768px) {
+      margin: 10px 0;
+    }
+
+    .story {
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      border-radius: 16px;
+      transition: 0.3s ease, box-shadow 0.3s ease;
+      padding: 30px 15px;
+      cursor: pointer;
+
+      &:hover {
+        transform: translateY(-5px);
+        background-color: #1A1817;
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+      }
+
+
+      .titleContainer {
+        margin: 10px 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: start;
+
+        p {
+          color: #fff;
+          font-size: 26px;
+        }
+      }
+
+      p {
+        color: #998f8f;
+      }
+
+      div {
+        margin: 20px 0;
+        display: flex;
+        justify-content: space-between;
+      }
+
+    }
+
+  }
+}
+</style>

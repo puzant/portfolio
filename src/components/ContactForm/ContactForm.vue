@@ -5,7 +5,7 @@
       <p>TOGETHER</p>
     </div>
 
-    <form action="" @submit.prevent="handleSubmit">
+    <form action="" @submit.prevent="handleSubmit" netlify>
       <div class="container">
         <div>
           <label for="full-name">Full Name</label>
@@ -128,17 +128,9 @@ export default {
         }
 
         input {
-          padding: 12px;
-          border-radius: 8px;
-          border: 1px solid transparent;
-          background-color: $secondaryColor;
-          color: $white;
-          transition: border-color 0.5s ease, box-shadow 0.3s ease;
-
+          @include styledInput;
           &:focus {
-            outline: none;
-            border-color: $orange;
-            box-shadow: $inputFocus;
+            @include inputFocus;
           }
         }
 
@@ -161,16 +153,9 @@ export default {
       }
 
       textarea {
-        background-color: $secondaryColor;
-        padding: 12px;
-        border-radius: 8px;
-        color: $white;
-        border: 1px solid transparent;
-        transition: border-color 0.5s ease, box-shadow 0.3s ease;
+        @include styledInput;
         &:focus {
-          outline: none;
-          border-color: $orange;
-          box-shadow: $inputFocus;
+          @include inputFocus;
         }
       }
 

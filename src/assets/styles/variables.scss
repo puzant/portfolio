@@ -27,3 +27,20 @@ $labelColor: #888;
     box-shadow: 0 8px 15px #00000033;
   }
 }
+
+@mixin styledInput {
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  background-color: $secondaryColor;
+  color: $white;
+  transition: border-color 0.5s ease, box-shadow 0.3s ease;
+}
+
+@mixin inputFocus {
+  &:focus {
+    outline: none;
+    border-color: $orange;
+    box-shadow: $inputFocus;
+  }
+}

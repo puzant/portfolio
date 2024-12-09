@@ -19,7 +19,7 @@
           </div>
         </div>
       
-        <img class="arrow" src="@/assets/arrow-up-right.svg" alt="">  
+        <img class="arrow" src="@/assets/arrow-up-right.svg" alt="">
       </a>
     </div>
 

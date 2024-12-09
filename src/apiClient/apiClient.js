@@ -1,7 +1,6 @@
 export const apiClient = {
-  async fetchData(url, token = null) {
-    const headers = token ? { Authorization: `Bearer ${token}` } : {}
-
+  async fetchData(url) {
+    const headers =  { Authorization: `Bearer ${process.env.VUE_APP_MEDIUM_INTEGRATION_TOKEN}` }
     const response = await fetch(url, { method: 'GET', headers })
 
     if (!response.ok) {

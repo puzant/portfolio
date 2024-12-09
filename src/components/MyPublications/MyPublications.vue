@@ -63,18 +63,16 @@ export default {
   },
   methods: {
     async fetchUserId() {
-      const token = "2c4fe4df5fac61963a65b35f5bd8bc53329beb90a80e667965dad8afbc315188a";
       const url = "/api/v1/me";
 
-      const response = await apiClient.fetchData(url, token);
+      const response = await apiClient.fetchData(url);
       return response?.data?.id;
     },
 
     async fetchPublications(userId) {
-      const token = "2c4fe4df5fac61963a65b35f5bd8bc53329beb90a80e667965dad8afbc315188a";
 
       const url = `/api/v1/users/${userId}/publications`;
-      const response = await apiClient.fetchData(url, token);
+      const response = await apiClient.fetchData(url);
       return response?.data || [];
     },
 

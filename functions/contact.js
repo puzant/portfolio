@@ -7,7 +7,7 @@ exports.handler = async (event, context) => {
     statusCode: 200, // HTTP Status OK
     body: JSON.stringify({ message: 'Hello, world!' }),
   };
-  
+
   // if (event.httpMethod !== 'POST') {
   //   return {
   //     statusCode: 405,
@@ -30,14 +30,14 @@ exports.handler = async (event, context) => {
   //     port: 587,
   //     secure: false,
   //     auth: {
-  //       user: 'pbakjejian@hotmail.com',
-  //       pass: 'Puzant1234',
+  //       user: 'process.env.VUE_APP_MY_EMAIL_ADDRESS',
+  //       pass: 'process.env.VUE_APP_MY_EMAIL_ADDRESS_PASSWORD',
   //     }
   //   })
 
   //   const mailOptions = {
   //     from: `${email}`,
-  //     to: 'pbakjejian@hotmail.com',
+  //     to: 'process.env.VUE_APP_MY_EMAIL_ADDRESS,
   //     subject: 'A message from client',
   //     text: `You have a new message from ${name} (${email}):\n\n${message}`,
   //   };

@@ -8,7 +8,7 @@
 
     <div class="intro">
       <div>Puzant Bakjejian</div>
-      <div>A Full stack engineer, with passion to craft amazing products</div>
+      <div>Full Stack Engineer with a flair for crafting innovative and impactful digital experiences.</div>
     </div>
 
     <div class="socialMediaLinks">

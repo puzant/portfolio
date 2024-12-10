@@ -28,18 +28,24 @@
         
       <button type="submit">
         <span>Send</span>
-        <img src="@/assets/icons/send-icon.svg" alt="">
+        <img v-if="!isSending" src="@/assets/icons/send-icon.svg" alt="">
+        <img v-else class="loadingIndicator" src="@/assets/icons/loading-indicator.svg" alt="">
       </button>
+
+      <p>{{ contactStatusMessage }}</p>
     </form>
   </div>
 </template>
 
 <script>
+import emailjs from '@emailjs/browser';
 
 export default {
   name: 'ContactForm',
   data() {
     return {
+      isSending: false,
+      contactStatusMessage: '',
       formData: {
         fullName: '',
         email: '',
@@ -48,48 +54,60 @@ export default {
       errors: {
         fullName: null,
         email: null,
-        message: null
+        message: null,
+        hasErrors: false
       },
       statusMessage: ''
     }
   },
   methods: {
-    async handleSubmit() {
-      const API_URL = `http://localhost:8888/.netlify/functions/contact`
-      const res = await fetch(API_URL)
-
-      console.log(res)
-      // const res = await fetch(API_URL, {
-      //   method: 'GET',
-      //   headers: {
-      //     'Content-Type': 'application/json',
-      //   },
-      //   body: JSON.stringify({
-      //     name: this.formData.fullName,
-      //     email: this.formData.email,
-      //     message: this.formData.message,
-      //   })
-      // })
-      // .then(res => {
-      //   console.log(res)
-      // })
-      // if (this.validateForm()) return
-    },
     validateForm() {
-      if (!this.formData.fullName) {
+      if (!this.formData.fullName || this.formData.fullName.trim() === '') {
         this.errors.fullName = 'Full Name is required'
+        this.errors.hasErrors = true
       }
-      if (!this.formData.email) {
+      if (!this.formData.email || this.formData.email.trim() === '') {
         this.errors.email = 'Email is required'
+        this.errors.hasErrors = true
       } else if (!/\S+@\S+\.\S+/.test(this.formData.email)) {
         this.errors.email = 'Please enter a valid email address.';
+        this.errors.hasErrors = true
       }
-      if (!this.formData.message) {
+      if (!this.formData.message || this.formData.message.trim() === '') {
         this.errors.message = 'Message is required'
+        this.errors.hasErrors = true
       }
+    },
+    async handleSubmit() {
+      this.validateForm()
 
-      return Object.keys(this.errors).length === 0
-    }
+      if (!this.errors.hasErrors) {
+        this.isSending = true
+
+        emailjs.send(
+          process.env.VUE_APP_SERVICE_ID,
+          process.env.VUE_APP_TEMPLATE_ID,
+          {
+            name: this.formData.fullName,
+            email: this.formData.email,
+            message: this.formData.message
+          },
+          process.env.VUE_APP_PUBLIC_ID,
+        ).then(res => {
+          console.log("You have successfully submitted your message", res.text)
+          this.contactStatusMessage = 'Thanks for reaching out! you’re message was well and will get back to you soon. 📩'
+        },
+          (err) => {
+            console.log("This form failed to submit, please kindly check your internet connection", err)
+          })
+        .finally(() => {
+          this.isSending = false
+          this.formData.fullName = ''
+          this.formData.email = ''
+          this.formData.message = ''
+        })
+      }
+    },
   }
 }
 </script>
@@ -202,11 +220,30 @@ export default {
         transition: transform 0.3s;
       }
 
+      .loadingIndicator {
+        animation: rotate180 1s infinite;
+      }
+
       &:hover img {
         transform: translateX(5px);
-      } 
+      }
+    }
+
+    P {
+      margin: 10px 0;
+      color: $orange;
     }
 
   }
+
+
+@keyframes rotate180 {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
 }
 </style>

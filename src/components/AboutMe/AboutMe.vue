@@ -20,7 +20,7 @@
         </div>
 
         <div>
-          <span>+5</span>
+          <span>+4</span>
           <span class="line-break">PROJECTS</span>
           <span class="line-break">COMPLETED</span>
         </div>

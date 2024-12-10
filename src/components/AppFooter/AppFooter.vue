@@ -23,7 +23,7 @@
   bottom: 0;
   color: $primaryColor;
   display: flex;
-  font-size: clamp(14px, 4vw, 24px);
+  font-size: clamp(14px, 4vw, 22px);
   gap: 10px;
 }
 </style>

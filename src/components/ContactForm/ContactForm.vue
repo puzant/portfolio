@@ -5,7 +5,7 @@
       <p>TOGETHER</p>
     </div>
 
-    <form action="" @submit.prevent="handleSubmit" netlify>
+    <form @submit.prevent="handleSubmit">
       <div class="container">
         <div>
           <label for="full-name">Full Name</label>
@@ -49,12 +49,31 @@ export default {
         fullName: null,
         email: null,
         message: null
-      }
+      },
+      statusMessage: ''
     }
   },
   methods: {
-    handleSubmit() {
-      if (this.validateForm()) console.log('test')
+    async handleSubmit() {
+      const API_URL = `http://localhost:8888/.netlify/functions/contact`
+      const res = await fetch(API_URL)
+
+      console.log(res)
+      // const res = await fetch(API_URL, {
+      //   method: 'GET',
+      //   headers: {
+      //     'Content-Type': 'application/json',
+      //   },
+      //   body: JSON.stringify({
+      //     name: this.formData.fullName,
+      //     email: this.formData.email,
+      //     message: this.formData.message,
+      //   })
+      // })
+      // .then(res => {
+      //   console.log(res)
+      // })
+      // if (this.validateForm()) return
     },
     validateForm() {
       if (!this.formData.fullName) {

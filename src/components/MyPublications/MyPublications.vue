@@ -25,8 +25,6 @@
 </template>
 
 <script>
-import { apiClient } from '@/apiClient/apiClient';
-
 export default {
   name: 'MyPublications',
   data() {
@@ -58,33 +56,6 @@ export default {
       error: null
     }
   },
-  mounted() {
-    this.initializeData()
-  },
-  methods: {
-    async fetchUserId() {
-      const url = "/api/v1/me";
-
-      const response = await apiClient.fetchData(url);
-      return response?.data?.id;
-    },
-
-    async fetchPublications(userId) {
-
-      const url = `/api/v1/users/${userId}/publications`;
-      const response = await apiClient.fetchData(url);
-      return response?.data || [];
-    },
-
-    async initializeData() {
-      try {
-        this.userId = await this.fetchUserId();
-      } catch (error) {
-        this.error = error;
-        console.error(error);
-      }
-    },
-  }
 }
 </script>
 

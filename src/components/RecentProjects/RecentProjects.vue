@@ -32,7 +32,7 @@ export default {
   data() {
     return {
       projects: [
-        {name: 'Locus', description: 'Real-Estate Management PLatform', preview: require('@/assets/project-1.png'), link: 'https://www.locus.eu/'},
+        {name: 'Locus', description: 'Real-Estate Management Platform', preview: require('@/assets/project-1.png'), link: 'https://www.locus.eu/'},
         {name: 'TMDB Clone', description: 'Explore And Search Movies', preview: require('@/assets/project-2.png'), link: 'https://react-app-movies-tracker.netlify.app/'},
         {name: 'Puzant CV', description: 'Interactive Online CV', preview: require('@/assets/project-3.png'), link: 'https://puzant-cv.netlify.app/'},
         {name: 'Password Generator', description: 'Complex Password Generator', preview: require('@/assets/project-4.png'), link: 'https://complex-password-generator-app.netlify.app/'},

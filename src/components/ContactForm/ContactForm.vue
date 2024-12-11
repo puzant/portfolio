@@ -28,8 +28,8 @@
         
       <button type="submit">
         <span>Send</span>
-        <img v-if="!isSending" src="@/assets/icons/send-icon.svg" alt="">
-        <img v-else class="loadingIndicator" src="@/assets/icons/loading-indicator.svg" alt="">
+        <img v-if="!isSending" src="@/assets/icons/send-icon.svg" alt="send email icon">
+        <img v-else class="loadingIndicator" src="@/assets/icons/loading-indicator.svg" alt="loading indicator">
       </button>
 
       <p>{{ contactStatusMessage }}</p>

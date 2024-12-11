@@ -7,7 +7,7 @@
 
     <div class="skillsContainer">
       <div class="skill" v-for="tech in skills" :key="tech">
-        <div class="skillIcon"><img :src="tech.icon" alt="" /></div>
+        <div class="skillIcon"><img :src="tech.icon" alt="skills" /></div>
         <p>{{ tech.name }}</p>
       </div>
     </div>

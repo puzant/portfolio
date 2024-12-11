@@ -3,7 +3,7 @@
     
     <a v-for="nav in navigation" :href="nav.href" :key="nav.name">
       <div class="tooltip">
-        <img :src="nav.icon" alt="">
+        <img :src="nav.icon" alt="navigation icon">
         <div class="tooltip-text">{{ nav.name }}</div>
       </div>
     </a>

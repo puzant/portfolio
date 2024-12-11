@@ -3,8 +3,8 @@
     <div class="sidebarContainer">
     <img class="profileImage" src="@/assets/profile-image.png" alt="">
 
-    <img class="shape1" src="@/assets/icons/shape-1.svg" alt="">
-    <img class="shape2" src="@/assets/icons/shape-2.svg" alt="">
+    <img class="shape1" src="@/assets/icons/shape-1.svg" alt="shape 1">
+    <img class="shape2" src="@/assets/icons/shape-2.svg" alt="shape 2">
 
     <div class="intro">
       <div>Puzant Bakjejian</div>
@@ -12,10 +12,10 @@
     </div>
 
     <div class="socialMediaLinks">
-      <a href="mailto:pbakjejian@hotmail.com"><img src="@/assets/icons/email-logo.svg" alt=""></a>
-      <a target="_blank" href="https://github.com/puzant"><img src="@/assets/icons/github-logo.svg" alt=""></a>
-      <a target="_blank" href="https://www.instagram.com/puzantbakjejian/"><img src="@/assets/icons/instagram-logo.svg" alt=""></a>
-      <a target="_blank" href="https://www.linkedin.com/in/puzant-b-006426108/"><img src="@/assets/icons/linkedin-logo.svg" alt=""></a>
+      <a href="mailto:pbakjejian@hotmail.com"><img src="@/assets/icons/email-logo.svg" alt="email"></a>
+      <a target="_blank" href="https://github.com/puzant"><img src="@/assets/icons/github-logo.svg" alt="github"></a>
+      <a target="_blank" href="https://www.instagram.com/puzantbakjejian/"><img src="@/assets/icons/instagram-logo.svg" alt="instagram"></a>
+      <a target="_blank" href="https://www.linkedin.com/in/puzant-b-006426108/"><img src="@/assets/icons/linkedin-logo.svg" alt="linkedin"></a>
     </div>
   </div>
   </div>

@@ -27,14 +27,14 @@
       </div>
 
       <div class="talkBtn">
-        <img src="@/assets/icons/stack-icon.svg" alt="">
+        <img src="@/assets/icons/stack-icon.svg" alt="stack icon">
         
         <a href="#contact">
           <span class="line-break">Let’s build something</span>
           
           <div class="workTogetherBox">
             <span>extraordinary together!</span>
-            <img src="@/assets/icons/arrow-down-icon.svg" alt="">
+            <img src="@/assets/icons/arrow-down-icon.svg" alt="arrow down icon">
           </div>
         </a>
       </div>

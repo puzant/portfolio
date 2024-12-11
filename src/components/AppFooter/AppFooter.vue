@@ -2,12 +2,12 @@
   <div class="footerContainer">
     <div>
       <span>Made with </span>
-      <img src="@/assets/icons/heart-icon.svg" alt="">
+      <img src="@/assets/icons/heart-icon.svg" alt="heart icon">
     </div>
 
     <div>
       <span>| Powered By </span>
-      <img src="@/assets/icons/vue-logo.svg" alt="">
+      <img src="@/assets/icons/vue-logo.svg" alt="vuejs icon">
     </div>
   </div>
 </template>

@@ -9,7 +9,7 @@
       <a class="story" v-for="story in stories" :key="story" :href="story.link" target="_blank">
         <div class="titleContainer">
           <p>{{ story.title }}</p>
-          <img class="arrow" src="@/assets/icons/arrow-up-right.svg" alt="">
+          <img class="arrow" src="@/assets/icons/arrow-up-right.svg" alt="arrow up right">
         </div>
 
         <p>{{ story.preview }}</p>

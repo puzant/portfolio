@@ -10,7 +10,7 @@
         
         <div class="innerContainer">
           <div class="projectPreview">
-            <img :src="project.preview" alt="">
+            <img :src="project.preview" :alt="project.description">
           </div>
 
           <div class="projectInfo">
@@ -19,7 +19,7 @@
           </div>
         </div>
       
-        <img class="arrow" src="@/assets/icons/arrow-up-right.svg" alt="">
+        <img class="arrow" src="@/assets/icons/arrow-up-right.svg" alt="arrrow up icon">
       </a>
     </div>
 
@@ -32,10 +32,10 @@ export default {
   data() {
     return {
       projects: [
-        {name: 'Locus', description: 'Real-Estate Management Platform', preview: require('@/assets/project-1.png'), link: 'https://www.locus.eu/'},
-        {name: 'TMDB Clone', description: 'Explore And Search Movies', preview: require('@/assets/project-2.png'), link: 'https://react-app-movies-tracker.netlify.app/'},
-        {name: 'Puzant CV', description: 'Interactive Online CV', preview: require('@/assets/project-3.png'), link: 'https://puzant-cv.netlify.app/'},
-        {name: 'Password Generator', description: 'Complex Password Generator', preview: require('@/assets/project-4.png'), link: 'https://complex-password-generator-app.netlify.app/'},
+        {name: 'Locus', description: 'Real-Estate Management Platform', preview: require('@/assets/project-1.webp'), link: 'https://www.locus.eu/'},
+        {name: 'TMDB Clone', description: 'Explore And Search Movies', preview: require('@/assets/project-2.webp'), link: 'https://react-app-movies-tracker.netlify.app/'},
+        {name: 'Puzant CV', description: 'Interactive Online CV', preview: require('@/assets/project-3.webp'), link: 'https://puzant-cv.netlify.app/'},
+        {name: 'Password Generator', description: 'Complex Password Generator', preview: require('@/assets/project-4.webp'), link: 'https://complex-password-generator-app.netlify.app/'},
       ]
     }
   }

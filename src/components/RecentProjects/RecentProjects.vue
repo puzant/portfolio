@@ -32,10 +32,10 @@ export default {
   data() {
     return {
       projects: [
-        {name: 'Locus', description: 'Real-Estate Management Platform', preview: require('@/assets/project-1.webp'), link: 'https://www.locus.eu/'},
-        {name: 'TMDB Clone', description: 'Explore And Search Movies', preview: require('@/assets/project-2.webp'), link: 'https://react-app-movies-tracker.netlify.app/'},
-        {name: 'Puzant CV', description: 'Interactive Online CV', preview: require('@/assets/project-3.webp'), link: 'https://puzant-cv.netlify.app/'},
-        {name: 'Password Generator', description: 'Complex Password Generator', preview: require('@/assets/project-4.webp'), link: 'https://complex-password-generator-app.netlify.app/'},
+        {name: 'Locus', description: 'Real-Estate Management Platform', preview: require('@/assets/project-1.webp'), link: 'https://www.locus.eu/', tech: ['React', 'Tailwind', 'React Query', 'Formik']},
+        {name: 'TMDB Clone', description: 'Explore And Search Movies', preview: require('@/assets/project-2.webp'), link: 'https://react-app-movies-tracker.netlify.app/', tech: ['React', 'Tailwind', 'React Query', 'TypeScript', ]},
+        {name: 'Puzant CV', description: 'Interactive Online CV', preview: require('@/assets/project-3.webp'), link: 'https://puzant-cv.netlify.app/', tech: ['AlpineJs', 'JavaScript', 'HTML', 'CSS']},
+        {name: 'Password Generator', description: 'Complex Password Generator', preview: require('@/assets/project-4.webp'), link: 'https://complex-password-generator-app.netlify.app/', tech: ['JavaScript', 'HTML', 'Tailwind']},
       ]
     }
   }
@@ -106,14 +106,16 @@ export default {
       }
 
       .projectInfo {
-        display: block;
+        display: flex;
+        flex-direction: column;
+        gap: 3px;
 
         p:first-child {
           font-size: 24px;
         }
-        p:last-child {
+
+        p:nth-child(2) {
           color: $primaryColor;
-          margin: 5px 0;
         }
       }
 

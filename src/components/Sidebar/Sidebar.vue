@@ -1,7 +1,7 @@
 <template>
   <div class="parentContainer">
     <div class="sidebarContainer">
-    <img class="profileImage" src="@/assets/profile-image.png" alt="">
+    <img class="profileImage" src="@/assets/profile-image.webp" alt="">
 
     <img class="shape1" src="@/assets/icons/shape-1.svg" alt="shape 1">
     <img class="shape2" src="@/assets/icons/shape-2.svg" alt="shape 2">

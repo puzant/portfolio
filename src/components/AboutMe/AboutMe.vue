@@ -135,25 +135,25 @@ export default {
         width: 100%;
       }
 
-      img:last-child {
-        border: 1px solid $white;
-        border-radius: 4px;
-        transition: transform 0.3s;
-      }
-
       a {
         text-decoration: none;
         color: $white;
+
+        .workTogetherBox {
+          @include responsive-flex-container;
+
+          img:last-child {
+            border: 1px solid $white;
+            border-radius: 4px;
+            transition: transform 0.3s;
+          }
+        }
       }
 
       &:hover img:last-child {
         transform: translateY(8px);
       } 
     }
-  }
-
-  .workTogetherBox {
-    @include responsive-flex-container;
   }
 }
 </style>

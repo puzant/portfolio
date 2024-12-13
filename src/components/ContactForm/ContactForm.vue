@@ -231,6 +231,7 @@ export default {
       }
 
       textarea {
+        font-family: 'Poppins', sans-serif;
         @include styledInput;
         &:focus {
           @include inputFocus;

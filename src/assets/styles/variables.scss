@@ -44,3 +44,33 @@ $labelColor: #888;
     box-shadow: $inputFocus;
   }
 }
+
+@mixin tooltip($isVertical: false) {
+  position: relative;
+  cursor: pointer;
+
+  &:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  .tooltip-text {
+    visibility: hidden;
+    background-color: $secondaryBackgroundColor;
+    color: $white;
+    text-align: center;
+    padding: 7px 12px;
+    border-radius: 12px;
+    position: absolute;
+    @if $isVertical {
+      top: 0;
+      right: calc(100% + 30px);
+    } @else {
+      top: 150%;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    opacity: 0;
+    transition: opacity .5s;
+  }
+}

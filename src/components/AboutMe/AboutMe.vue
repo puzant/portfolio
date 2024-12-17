@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container" id="about">
     <div class="title">
       <p>FULL STACK</p>
       <p>ENGINEER</p>

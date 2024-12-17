@@ -94,6 +94,11 @@ export default {
       padding: 30px 15px;
       cursor: pointer;
 
+      @media (max-width: 768px) {
+        padding: 20px 10px;
+      }
+
+
       @include liftEffect;
 
       .titleContainer {
@@ -104,7 +109,7 @@ export default {
 
         p {
           color: $white;
-          font-size: 26px;
+          font-size: clamp(20px, 6vw, 26px);
         }
       }
 

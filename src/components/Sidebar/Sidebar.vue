@@ -34,7 +34,7 @@ export default {
 .parentContainer {
   position: sticky;
   top: 40px;
-
+  opacity: 0;
   @media (max-width: 768px) {
     position: static;
   }

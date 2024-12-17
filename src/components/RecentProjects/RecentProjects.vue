@@ -46,6 +46,7 @@ export default {
 @import '@/assets/styles/variables';
 
 .container {
+  opacity: 0;
   .title {
     font-size: clamp(40px, 6vw, 90px);
     line-height: 1;

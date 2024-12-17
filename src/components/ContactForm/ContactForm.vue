@@ -157,6 +157,7 @@ export default {
 @import '@/assets/styles/variables';
 
 .contactForm {
+  opacity: 0;
   .title {
     font-size: clamp(40px, 6vw, 90px);
     font-weight: bold;

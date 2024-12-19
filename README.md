@@ -2,6 +2,8 @@
 
 ![Vue.js](https://img.shields.io/badge/vuejs-%2335495e.svg?style=for-the-badge&logo=vuedotjs&logoColor=%234FC08D)
 ![SASS](https://img.shields.io/badge/SASS-hotpink.svg?style=for-the-badge&logo=SASS&logoColor=white)
+![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
+![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB)
 
 ## Preview
 ![app-screenshot](./public/portfolio-screenshot.png)
@@ -15,7 +17,7 @@
 
 ## 🛠️ Built With  
 - **Vue.js**: For creating a dynamic and interactive user experience.  
-- **Sass**: For clean and maintainable styling with advanced CSS features.  
+- **Sass**: For clean and maintainable styling with advanced CSS features.
 
 
 **📷 Demo**: [Puzant Portfolio](http://puzant.netlify.app/)

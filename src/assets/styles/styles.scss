@@ -41,6 +41,79 @@ html:focus-within {
 .outerContainer {
   position: relative;
 
+  .travelImages {
+    display: flex;
+    gap: 32px;
+    margin: 20px 0;
+    overflow-y: auto;
+    scrollbar-width: none;
+    padding: 2rem 1rem;
+
+    .image {
+      position: relative;
+      width: 11rem;
+      flex: none;
+      overflow: hidden;
+      aspect-ratio: 9 / 10;
+      transition: transform 0.3s ease;
+      border-radius: 12px;
+      background-color: rgb(39 39 42/.5);
+
+      .placeholder {
+        width: 100%;
+        height: 100%;
+        animation: pulse 2s infinite;
+      }
+
+      &.even {
+        transform: scale(1) rotate(1.3deg) translateZ(0px);
+      }
+
+      &.odd {
+        transform: scale(1) rotate(-1.3deg) translateZ(0px);
+      }
+
+      &:hover {
+        transform: scale(1.1) rotate(0deg) translateZ(0px);
+        transition: transform 0.2s infinite ;
+      }
+
+      img {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 40%;
+        background: linear-gradient(to top, #000000b3, #00000000);
+        transition: opacity 0.3s ease;
+        color: $white;
+        opacity: 0;
+        padding: 10px;
+        font-size: 14px;
+        display: flex;
+        align-items: end;
+      }
+
+      &:hover .overlay {
+        opacity: 1;
+      }
+
+    }
+  }
+
+  
+
   .mainContainer {
     width: 80%;
     margin: 0 auto;
@@ -86,4 +159,16 @@ html:focus-within {
     transition: opacity .5s ease-out;
   }
   
+}
+
+@keyframes pulse {
+  0% {
+    background-color: #353434;
+  }
+  50% {
+    background-color: rgb(40, 39, 39);
+  }
+  100% {
+    background-color: #353434;
+  }
 }

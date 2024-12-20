@@ -101,7 +101,7 @@ const placeholderOrImages = computed(() => {
 const fetchTravelImages = async () => {
   try {
     loading.value = true
-    const response = await fetch(`${process.env.VUE_APP_API_URL}/travel-images`)
+    const response = await fetch(`${process.env.VUE_APP_API_URL}/api/travel-images`)
     
     if (!response.ok) {
       throw new Error(`Error: ${response.status} ${response.statusText}`)

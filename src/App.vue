@@ -1,9 +1,19 @@
 <template>
   <div class="outerContainer">
     <VerticalAppNavigation ref="verticalNavigationRef" :viewed-section="viewedSection" />
+    <AppNavigation ref="navigationRef" />
+
+    <div class="travelImages" ref="galleryRef">
+      <div class="image" :class="{ even: index % 2 === 0, odd: index % 2 !== 0 }" v-for="(image, index) in placeholderOrImages" :key="image.asset_id">
+        <img v-if="!image.isPlaceholder" v-lazy-load="image" :alt='image.display_name' />
+        <div v-else class="placeholder"></div>
+        <div class="overlay">
+          <p>{{ image.display_name }}</p>
+        </div>
+      </div>
+    </div>
 
     <div class="mainContainer">
-      <AppNavigation ref="navigationRef" />
       <div class="sidebarItemsContainer">
         <SideBar ref="sidebarRef" />
       
@@ -21,8 +31,7 @@
 </template>
 
 <script setup>
-import { onMounted, onUnmounted, ref } from 'vue';
-
+import { onMounted, onUnmounted, ref, computed } from 'vue';
 import AppNavigation from '@/components/AppNavigation/AppNavigation.vue';
 import VerticalAppNavigation from '@/components/VerticalAppNavigation.vue'
 import SideBar from '@/components/Sidebar/Sidebar.vue';
@@ -41,14 +50,18 @@ const aboutMeRef = ref(null)
 const skillsRef = ref(null)
 const publicationsRef = ref(null)
 const contactFormRef = ref(null)
+const galleryRef = ref(null)
+const loading = ref(false)
 
 const refs = [sidebarRef, projectsRef, aboutMeRef, skillsRef, publicationsRef, contactFormRef, navigationRef, verticalNavigationRef]
 // used to check which scetion is the user currently is on
 let viewedSection = ref(null)
 let observer = null
-
+let travelImages = ref([])
 
 onMounted(() => {
+  fetchTravelImages()
+
   observer = new IntersectionObserver((entries) => {
     for (const entry of entries) {
       if (!entry.isIntersecting && entry.target.id === 'navbar') {
@@ -75,4 +88,32 @@ onMounted(() => {
 onUnmounted(() => {
   observer.disconnect()
 })
+
+const placeholderOrImages = computed(() => {
+  if (loading.value) {
+    return Array.from({ length: 8 }, () => ({
+      isPlaceholder: true
+    }))
+  }
+  return travelImages.value.map((image) => ({ ...image, isPlaceholder: false }))
+})
+
+const fetchTravelImages = async () => {
+  try {
+    loading.value = true
+    const response = await fetch(`${process.env.VUE_APP_API_URL}/travel-images`)
+    
+    if (!response.ok) {
+      throw new Error(`Error: ${response.status} ${response.statusText}`)
+    }
+    
+    const data = await response.json()
+    travelImages.value = data.images
+    return data
+  } catch (error) {
+    console.error('Failed to fetch travel images:', error.message);
+  } finally {
+    loading.value = false
+  }
+};
 </script>

@@ -26,6 +26,7 @@ import { defineProps } from 'vue'
 @import '@/assets/styles/variables';
 
 .verticalNavigation {
+  z-index: 1000;
   background-color: $secondaryBackgroundColor;
   padding: 10px 20px;
   display: flex;

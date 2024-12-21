@@ -58,9 +58,11 @@ const refs = [sidebarRef, projectsRef, aboutMeRef, skillsRef, publicationsRef, c
 let viewedSection = ref(null)
 let observer = null
 let travelImages = ref([])
+let keepAliveInterval = ref(null)
 
 onMounted(() => {
   fetchTravelImages()
+  keepAliveInterval.value = setInterval(fetchTravelImages, 480000)
 
   observer = new IntersectionObserver((entries) => {
     for (const entry of entries) {
@@ -87,6 +89,7 @@ onMounted(() => {
 
 onUnmounted(() => {
   observer.disconnect()
+  clearInterval(keepAliveInterval)
 })
 
 const placeholderOrImages = computed(() => {

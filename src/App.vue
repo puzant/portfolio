@@ -31,16 +31,16 @@
 </template>
 
 <script setup>
-import { onMounted, onUnmounted, ref, computed } from 'vue';
-import AppNavigation from '@/components/AppNavigation/AppNavigation.vue';
+import { onMounted, onUnmounted, ref, computed } from 'vue'
+import AppNavigation from '@/components/AppNavigation.vue'
 import VerticalAppNavigation from '@/components/VerticalAppNavigation.vue'
-import SideBar from '@/components/Sidebar/Sidebar.vue';
-import ContactForm from '@/components/ContactForm/ContactForm.vue';
-import AboutMe from '@/components/AboutMe/AboutMe.vue';
-import RecentProjects from '@/components/RecentProjects/RecentProjects.vue';
-import AppFooter from '@/components/AppFooter/AppFooter.vue';
-import TechSkills from '@/components/TechSkills/TechSkills.vue';
-import MyPublications from '@/components/MyPublications/MyPublications.vue';
+import SideBar from '@/components/Sidebar.vue'
+import ContactForm from '@/components/ContactForm.vue'
+import AboutMe from '@/components/AboutMe.vue'
+import RecentProjects from '@/components/RecentProjects.vue'
+import AppFooter from '@/components/AppFooter.vue'
+import TechSkills from '@/components/TechSkills.vue'
+import MyPublications from '@/components/MyPublications.vue'
 
 const navigationRef = ref(null)
 const verticalNavigationRef = ref(null)

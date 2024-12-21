@@ -42,12 +42,18 @@ html:focus-within {
   position: relative;
 
   .travelImages {
+    z-index: 1;
     display: flex;
     gap: 32px;
     margin: 20px 0;
     overflow-y: auto;
     scrollbar-width: none;
     padding: 2rem 1rem;
+
+    @media (max-width: 768px) {
+      padding: 1rem 1.2rem;
+      gap: 25px;
+    }
 
     .image {
       position: relative;
@@ -112,8 +118,6 @@ html:focus-within {
     }
   }
 
-  
-
   .mainContainer {
     width: 80%;
     margin: 0 auto;
@@ -158,7 +162,6 @@ html:focus-within {
     opacity: 0;
     transition: opacity .5s ease-out;
   }
-  
 }
 
 @keyframes pulse {
@@ -166,7 +169,7 @@ html:focus-within {
     background-color: #353434;
   }
   50% {
-    background-color: rgb(40, 39, 39);
+    background-color: #282727;
   }
   100% {
     background-color: #353434;

@@ -5,6 +5,7 @@
 
       <img class="shape1" src="@/assets/icons/shape-1.svg" alt="shape 1">
       <img class="shape2" src="@/assets/icons/shape-2.svg" alt="shape 2">
+      <img class="shape4" src="@/assets/icons/shape-4.svg" alt="shape 4">
 
       <div class="intro">
         <div>Puzant Bakjejian</div>
@@ -83,6 +84,17 @@ export default {
       right: 0;
       width: 65px;
       border-bottom-right-radius: 12px;
+    }
+
+    .shape4 {
+      position: absolute;
+  top: 92%;
+  left: 2%;
+  width: 70px;
+  transform: translateX(-50%);
+  @media (max-width: 768px) {
+        width: 55px;
+      }
     }
 
     .intro {

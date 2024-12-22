@@ -24,7 +24,7 @@
 - Deployed on Render: The backend is hosted on Render, ensuring robust performance and scalability.
 
 **Animations**
-- Hover Effects: Image gallery includes smooth transitions and tilt animations.
+- Fade In Effects: As user scrolls the section will loaded with fade in animation.
 - Dynamic Layouts: Even and odd-indexed images have unique tilt effects for a creative aesthetic.
 
 **Navigation**

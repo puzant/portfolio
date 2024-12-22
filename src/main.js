@@ -5,11 +5,14 @@ import '@/assets/styles/styles.scss'
 const app = createApp(App)
 
 app.directive('lazy-load', (el, binding) => {
-  el.src = '@/assets/black-bg.jpg'
-  
+  el.style.opacity = '0'
+  el.style.transition = 'opacity 0.5s'
+
   const observer = new IntersectionObserver(([entry]) => {
     if (entry.isIntersecting) {
       el.src = binding.value.url
+      el.style.opacity = '1'
+
       observer.unobserve(el)
     }
   })

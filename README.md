@@ -9,6 +9,9 @@
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/69b08752-c859-4ab6-a550-e45447ffb753/deploy-status)](https://app.netlify.com/sites/puzant/deploys)
 
+## 🌟 Portfolio Website
+A modern and responsive portfolio showcasing projects, skills, and travels. Built with Vue 3, SCSS, Node.js, and Express.js, it features lazy loading with Intersection Observer API, seamless animations, and Cloudinary integration.
+
 ## Preview
 ![app-screenshot](./public/portfolio-screenshot.png)
 

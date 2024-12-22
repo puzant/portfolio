@@ -160,7 +160,8 @@ html:focus-within {
 
   .hidden {
     opacity: 0;
-    transition: opacity .5s ease-out;
+    transform: translateY(0px);
+    transition: opacity .5s ease-out, transform 0.6s ease-out;
   }
 }
 

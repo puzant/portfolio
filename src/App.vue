@@ -70,7 +70,7 @@ onMounted(() => {
         verticalNavigationRef.value.$el.classList.remove('hidden')
         verticalNavigationRef.value.$el.classList.add('fade-in')
       } else if (entry.isIntersecting && entry.target.id === 'navbar') {
-        verticalNavigationRef.value.$el.classList.remove('fade-in')
+        verticalNavigationRef.value.$el.classList.remove('fade-in', 'no-translate')
         verticalNavigationRef.value.$el.classList.add('hidden')
       }
       

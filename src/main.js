@@ -5,6 +5,8 @@ import '@/assets/styles/styles.scss'
 const app = createApp(App)
 
 app.directive('lazy-load', (el, binding) => {
+  el.src = '@/assets/black-bg.jpg'
+  
   const observer = new IntersectionObserver(([entry]) => {
     if (entry.isIntersecting) {
       el.src = binding.value.url

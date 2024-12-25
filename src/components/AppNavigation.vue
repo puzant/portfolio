@@ -20,6 +20,7 @@ export default {
         {href: '#projects', name: 'Projects', icon: require('@/assets/icons/project-icon.svg')},
         {href: '#skills', name: 'Skills', icon: require('@/assets/icons/skill-icon.svg')},
         {href: '#stories', name: 'Publications', icon: require('@/assets/icons/write-icon.svg')},
+        {href: '#contact', name: 'Contact', icon: require('@/assets/icons/contact-icon.svg')}
       ]
     }
   }

@@ -17,6 +17,7 @@ import { defineProps } from 'vue'
     {href: '#projects', name: 'Projects', icon: require('@/assets/icons/project-icon.svg'), activeIcon: require('@/assets/icons/project-active-icon.svg')},
     {href: '#skills', name: 'Skills', icon: require('@/assets/icons/skill-icon.svg'), activeIcon: require('@/assets/icons/skill-active-icon.svg')},
     {href: '#stories', name: 'Publications', icon: require('@/assets/icons/write-icon.svg'), activeIcon: require('@/assets/icons/write-active-icon.svg')},
+    {href: '#contact', name: 'Contact', icon: require('@/assets/icons/contact-icon.svg'), activeIcon: require('@/assets/icons/active-contact-icon.svg')}
   ]
 
   defineProps({ viewedSection: String })

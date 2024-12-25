@@ -65,15 +65,7 @@ export default {
 .container {
   opacity: 0;
   .title {
-    font-size: clamp(40px, 6vw, 90px);
-    line-height: 1;
-    font-weight: bold;
-    p:first-child {
-      color: $white;
-    }
-    p:last-child {
-      color: $secondaryColor;
-    }
+    @include sectionTitle;
   }
 
   .publicationsContainer {
@@ -97,7 +89,6 @@ export default {
       @media (max-width: 768px) {
         padding: 20px 10px;
       }
-
 
       @include liftEffect;
 

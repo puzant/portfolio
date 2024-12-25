@@ -88,11 +88,11 @@ export default {
 
     .shape4 {
       position: absolute;
-  top: 92%;
-  left: 2%;
-  width: 70px;
-  transform: translateX(-50%);
-  @media (max-width: 768px) {
+      top: 92%;
+      left: 2%;
+      width: 70px;
+      transform: translateX(-50%);
+      @media (max-width: 768px) {
         width: 55px;
       }
     }
@@ -120,7 +120,6 @@ export default {
       display: flex;
       align-items: center;
       gap: 20px;
-      // margin: 10px 0;
 
       img {
         cursor: pointer;

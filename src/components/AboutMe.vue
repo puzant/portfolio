@@ -56,23 +56,13 @@ export default {
 .container {
   opacity: 0;
   .title {
-    font-size: clamp(40px, 6vw, 90px);
-    line-height: 1;
-    
-    font-weight: bold;
-    p:first-child {
-      color: $white;
-    }
-    p:last-child {
-      color: $secondaryColor;
-    }
+    @include sectionTitle;
   }
 
   .intro {
     color: $primaryColor;
     line-height: 1.6;
     margin: 30px 0;
-    
     
     @media (max-width: 768px) {
       width: 100%;

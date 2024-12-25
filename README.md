@@ -53,3 +53,9 @@ A modern and responsive portfolio showcasing projects, skills, and travels. Buil
 ## 🗄️ Hosting
 - Back-End deployed on Render
 - Front-End deployed on Netlify
+
+## Why Does This Portfolio Have a Backend?
+This portfolio includes a backend to handle specific functionalities securely and efficiently. The main reason is to fetch and manage images stored in **Cloudinary**, which requires server-side authentication.
+
+1. The backend handles the authentication using the API key and secret.
+2. It fetches images from a designated folder in Cloudinary and returns them to the front end via a secure API.

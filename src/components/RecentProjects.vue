@@ -18,7 +18,7 @@
             <p>{{ project.description }}</p>
           </div>
         </div>
-      
+
         <img class="arrow" src="@/assets/icons/arrow-up-right.svg" alt="arrrow up icon">
       </a>
     </div>
@@ -76,7 +76,7 @@ export default {
       cursor: pointer;
       border-radius: 16px;
       transition: 0.3s ease, box-shadow 0.3s ease;
-      padding: 20px 8px;
+      padding: 20px 5px;
       text-decoration: none;
 
       @include liftEffect;
@@ -85,41 +85,40 @@ export default {
         display: flex;
         align-items: center;
         gap: 20px;
+        
+        .projectPreview {
+          aspect-ratio: .9649122807017544 / 1;
+          overflow: hidden;
+          width: 130px;
+          height: 160px;
+
+          @media (max-width: 768px) {
+            width: 90px;
+            height: 93px;
+          }
+
+          img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+          }
+        }
+
+        .projectInfo {
+          display: flex;
+          flex-direction: column;
+          gap: 3px;
+
+          p:first-child {
+            font-size: 24px;
+          }
+
+          p:nth-child(2) {
+            color: $primaryColor;
+          }
+        }
       }
-      
-      .projectPreview {
-        aspect-ratio: .9649122807017544 / 1;
-        overflow: hidden;
-        width: 150px;
-        height: 180px;
-
-        @media (max-width: 768px) {
-          width: 90px;
-          height: 93px;
-        }
-
-        img {
-          height: 100%;
-          width: 100%;
-          object-fit: cover;
-          border-radius: 12px;
-        }
-      }
-
-      .projectInfo {
-        display: flex;
-        flex-direction: column;
-        gap: 3px;
-
-        p:first-child {
-          font-size: 24px;
-        }
-
-        p:nth-child(2) {
-          color: $primaryColor;
-        }
-      }
-
       .arrow {
         align-self: flex-start;
       }

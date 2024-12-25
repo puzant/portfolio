@@ -48,15 +48,7 @@ export default {
 .container {
   opacity: 0;
   .title {
-    font-size: clamp(40px, 6vw, 90px);
-    line-height: 1;
-    font-weight: bold;
-    p:first-child {
-      color: $white;
-    }
-    p:last-child {
-      color: $secondaryColor;
-    }
+    @include sectionTitle;
   }
 
   .projectsContainer {

@@ -12,6 +12,19 @@ $inputFocus: 0 0 5px #fc8a1e80;
 $inputErrorFocus: 0 0 5px #f6370c80;
 $labelColor: #888;
 
+@mixin sectionTitle {
+  font-size: clamp(40px, 6vw, 90px);
+  line-height: 1;
+  font-weight: bold;
+  
+  p:first-child {
+    color: $white;
+  }
+  p:last-child {
+    color: $secondaryColor;
+  }
+}
+
 @mixin responsive-flex-container {
   display: flex;
   align-items: center;

@@ -85,7 +85,7 @@ export default {
 
     .stats {
       display: flex;
-      gap: 30px;;
+      gap: 30px;
     
       div {
         display: flex;

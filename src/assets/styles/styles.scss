@@ -34,6 +34,11 @@ body {
   font-family: 'Poppins', sans-serif;
 }
 
+::selection {
+  background-color: $orange;
+  color: $white;
+}
+
 html:focus-within {
   scroll-behavior: smooth;
 }

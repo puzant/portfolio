@@ -6,17 +6,17 @@
     </div>
 
     <div class="publicationsContainer">
-      <a class="story" v-for="story in stories" :key="story" :href="story.link" target="_blank">
+      <a class="story" v-for="publication in $publications" :key="publication" :href="publication.link" target="_blank">
         <div class="titleContainer">
-          <p>{{ story.title }}</p>
+          <p>{{ publication.title }}</p>
           <img class="arrow" src="@/assets/icons/arrow-up-right.svg" alt="arrow up right">
         </div>
 
-        <p>{{ story.preview }}</p>
+        <p>{{ publication.preview }}</p>
 
         <div>
-          <p>{{ story.publishedDate }}</p>
-          <p>{{ story.duration }} min read</p>
+          <p>{{ publication.publishedDate }}</p>
+          <p>{{ publication.duration }} min read</p>
         </div>
       </a>
     </div>
@@ -29,29 +29,6 @@ export default {
   name: 'MyPublications',
   data() {
     return {
-      stories: [
-        {
-          title: 'Efficient Data Fetching and Mutation in React with Generic Hooks and HOCs',
-          preview: 'In the ever-evolving landscape of web development, one constant remains: the need to interact with APIs. Whether you’re building web…',
-          publishedDate: 'Sep 5, 2023',
-          duration: '4',
-          link: 'https://medium.com/@puzant24/efficient-data-fetching-and-mutation-in-react-with-generic-hooks-and-hocs-37728b444ac8'
-        },
-        {
-          title: 'Building A Simple Images Carousel With ReactJs',
-          preview: 'Carousel allows multiple image & videos to be displayed in a nice & interactive way',
-          publishedDate: 'Feb 3, 2021',
-          duration: '4',
-          link: 'https://medium.com/@puzant24/building-a-simple-images-carousel-with-reactjs-377256bedc61'
-        },
-        {
-          title: 'Infinite Scroll With ReactJs & Redux',
-          preview: 'Infinite scroll has been widely used in today’s web & mobile apps, it simply loads data as you scroll down the page, this eliminated the…',
-          publishedDate: 'Jul 8, 2020',
-          duration: '3',
-          link: 'https://medium.com/@puzant24/infinite-scroll-with-reactjs-redux-23bccea01dd0'
-        }
-      ],
       userId: null,
       error: null
     }

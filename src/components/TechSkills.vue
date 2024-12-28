@@ -6,33 +6,14 @@
     </div>
 
     <div class="skillsContainer">
-      <div class="skill" v-for="tech in skills" :key="tech">
-        <div class="skillIcon"><img :src="tech.icon" alt="skills" /></div>
-        <p>{{ tech.name }}</p>
+      <div class="skill" v-for="skill in $skills" :key="skill">
+        <div class="skillIcon"><img :src="skill.icon" alt="skills" /></div>
+        <p>{{ skill.name }}</p>
       </div>
     </div>
   </div>
 </template>
 
-<script>
-export default {
-  name: 'TechSkills',
-  data() {
-    return {
-      skills: [
-        {name: 'React', icon: require('@/assets/icons/react-logo.svg')},
-        {name: 'Vue', icon: require('@/assets/icons/vue-logo.svg')},
-        {name: 'Tailwind', icon: require('@/assets/icons/tailwind-logo.svg')},
-        {name: 'NodeJs', icon: require('@/assets/icons/nodejs-logo.svg')},
-        {name: 'Mysql', icon: require('@/assets/icons/mysql-logo.svg')},
-        {name: 'Mongodb', icon: require('@/assets/icons/mongodb-logo.svg')},
-        {name: 'Typescript', icon: require('@/assets/icons/typescript-logo.svg')},
-        {name: 'Python', icon: require('@/assets/icons/python-logo.svg')},
-      ]
-    }
-  }
-}
-</script>
 
 <style scoped lang="scss">
 @import '@/assets/styles/variables';

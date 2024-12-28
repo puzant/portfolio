@@ -6,7 +6,7 @@
     </div>
 
     <div class="projectsContainer">
-      <a class="project" v-for="project in projects" :key="project" :href="project.link" target="_blank">
+      <a class="project" v-for="project in $projects" :key="project" :href="project.link" target="_blank">
         
         <div class="innerContainer">
           <div class="projectPreview">
@@ -25,22 +25,6 @@
 
   </div>
 </template>
-
-<script>
-export default {
-  name: 'RecentProjects',
-  data() {
-    return {
-      projects: [
-        {name: 'Locus', description: 'Real-Estate Management Platform', preview: require('@/assets/project-1.webp'), link: 'https://www.locus.eu/', tech: ['React', 'Tailwind', 'React Query', 'Formik']},
-        {name: 'TMDB Clone', description: 'Explore And Search Movies', preview: require('@/assets/project-2.webp'), link: 'https://react-app-movies-tracker.netlify.app/', tech: ['React', 'Tailwind', 'React Query', 'TypeScript', ]},
-        {name: 'Puzant CV', description: 'Interactive Online CV', preview: require('@/assets/project-3.webp'), link: 'https://puzant-cv.netlify.app/', tech: ['AlpineJs', 'JavaScript', 'HTML', 'CSS']},
-        {name: 'Password Generator', description: 'Complex Password Generator', preview: require('@/assets/project-4.webp'), link: 'https://complex-password-generator-app.netlify.app/', tech: ['JavaScript', 'HTML', 'Tailwind']},
-      ]
-    }
-  }
-}
-</script>
 
 <style scoped lang="scss">
 @import '@/assets/styles/variables';
@@ -68,7 +52,7 @@ export default {
       cursor: pointer;
       border-radius: 16px;
       transition: 0.3s ease, box-shadow 0.3s ease;
-      padding: 30px 15px;
+      padding: 16px 15px;
       text-decoration: none;
       border: 1px solid transparent;
 

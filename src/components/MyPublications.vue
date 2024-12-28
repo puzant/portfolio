@@ -85,7 +85,8 @@ export default {
       transition: 0.3s ease, box-shadow 0.3s ease;
       padding: 30px 15px;
       cursor: pointer;
-
+      border: 1px solid transparent;
+      
       @media (max-width: 768px) {
         padding: 20px 10px;
       }

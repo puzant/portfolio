@@ -68,8 +68,9 @@ export default {
       cursor: pointer;
       border-radius: 16px;
       transition: 0.3s ease, box-shadow 0.3s ease;
-      padding: 20px 5px;
+      padding: 30px 15px;
       text-decoration: none;
+      border: 1px solid transparent;
 
       @include liftEffect;
 

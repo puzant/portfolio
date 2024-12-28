@@ -3,7 +3,7 @@
     <VerticalAppNavigation ref="verticalNavigationRef" :viewed-section="viewedSection" />
     <AppNavigation ref="navigationRef" />
 
-    <div class="travelImages" ref="galleryRef">
+    <div class="travelImages">
       <div class="image" :class="{ even: index % 2 === 0, odd: index % 2 !== 0 }" v-for="(image, index) in placeholderOrImages" :key="image.asset_id">
         <img v-if="!image.isPlaceholder" v-lazy-load="image" :alt='image.display_name' />
         <div v-else class="placeholder"></div>
@@ -50,20 +50,20 @@ const aboutMeRef = ref(null)
 const skillsRef = ref(null)
 const publicationsRef = ref(null)
 const contactFormRef = ref(null)
-const galleryRef = ref(null)
 const loading = ref(false)
 
 const refs = [sidebarRef, projectsRef, aboutMeRef, skillsRef, publicationsRef, contactFormRef, navigationRef, verticalNavigationRef]
 // used to check which scetion is the user currently is on
 let viewedSection = ref(null)
-let observer = null
 let travelImages = ref([])
 let keepAliveInterval = ref(null)
+
+let observer = null
 
 onMounted(() => {
   fetchTravelImages()
   keepAliveInterval.value = setInterval(fetchTravelImages, 480000)
-
+ 
   observer = new IntersectionObserver((entries) => {
     for (const entry of entries) {
       if (!entry.isIntersecting && entry.target.id === 'navbar') {

@@ -3,15 +3,7 @@
     <VerticalAppNavigation ref="verticalNavigationRef" :viewed-section="viewedSection" />
     <AppNavigation ref="navigationRef" />
 
-    <div class="travelImages">
-      <div class="image" :class="{ even: index % 2 === 0, odd: index % 2 !== 0 }" v-for="(image, index) in placeholderOrImages" :key="image.asset_id">
-        <img v-if="!image.isPlaceholder" v-lazy-load="image" :alt='image.display_name' />
-        <div v-else class="placeholder"></div>
-        <div class="overlay">
-          <p>{{ image.display_name }}</p>
-        </div>
-      </div>
-    </div>
+    <TravelImages :images="placeholderOrImages" test="hello" />
 
     <div class="mainContainer">
       <div class="sidebarItemsContainer">
@@ -19,9 +11,9 @@
       
         <div class="mainSections">
           <AboutMe ref="aboutMeRef" />
-          <RecentProjects ref="projectsRef" />
+          <RecentProjects ref="projectsRef" :projects="projects" />
           <TechSkills ref="skillsRef" />
-          <MyPublications ref="publicationsRef" />
+          <MyPublications ref="publicationsRef" :publications="publications" />
           <ContactForm ref="contactFormRef" />
         </div>
       </div>
@@ -41,6 +33,7 @@ import RecentProjects from '@/components/RecentProjects.vue'
 import AppFooter from '@/components/AppFooter.vue'
 import TechSkills from '@/components/TechSkills.vue'
 import MyPublications from '@/components/MyPublications.vue'
+import TravelImages from '@/components/TravelImages.vue'
 
 const navigationRef = ref(null)
 const verticalNavigationRef = ref(null)
@@ -55,15 +48,31 @@ const loading = ref(false)
 const refs = [sidebarRef, projectsRef, aboutMeRef, skillsRef, publicationsRef, contactFormRef, navigationRef, verticalNavigationRef]
 // used to check which scetion is the user currently is on
 let viewedSection = ref(null)
+
+let projects = ref([])
+let publications = ref([])
 let travelImages = ref([])
-let keepAliveInterval = ref(null)
 
 let observer = null
 
-onMounted(() => {
-  fetchTravelImages()
-  keepAliveInterval.value = setInterval(fetchTravelImages, 480000)
- 
+onMounted(async () => {
+  try {
+    loading.value = true
+    const [projectsRes, publicationsRes, travelImagesRes] = await Promise.all([
+      fetch('http://localhost:3000/projects/api').then(res => res.json()),
+      fetch('http://localhost:3000/publications/api').then(res => res.json()),
+      fetch('http://localhost:3000/travel-images/api').then(res => res.json()),
+    ])
+
+    travelImages.value = travelImagesRes.images
+    projects.value = projectsRes.projects
+    publications.value = publicationsRes.publications
+  } catch (err) {
+    console.log(err)
+  } finally {
+    loading.value = false
+  }
+
   observer = new IntersectionObserver((entries) => {
     for (const entry of entries) {
       if (!entry.isIntersecting && entry.target.id === 'navbar') {
@@ -89,7 +98,6 @@ onMounted(() => {
 
 onUnmounted(() => {
   observer.disconnect()
-  clearInterval(keepAliveInterval)
 })
 
 const placeholderOrImages = computed(() => {
@@ -98,25 +106,7 @@ const placeholderOrImages = computed(() => {
       isPlaceholder: true
     }))
   }
+
   return travelImages.value.map((image) => ({ ...image, isPlaceholder: false }))
 })
-
-const fetchTravelImages = async () => {
-  try {
-    loading.value = true
-    const response = await fetch(`${process.env.VUE_APP_API_URL}/api/travel-images`)
-    
-    if (!response.ok) {
-      throw new Error(`Error: ${response.status} ${response.statusText}`)
-    }
-    
-    const data = await response.json()
-    travelImages.value = data.images
-    return data
-  } catch (error) {
-    console.error('Failed to fetch travel images:', error.message);
-  } finally {
-    loading.value = false
-  }
-};
 </script>

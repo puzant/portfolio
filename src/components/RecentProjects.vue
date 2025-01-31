@@ -6,7 +6,7 @@
     </div>
 
     <div class="projectsContainer">
-      <a class="project" v-for="project in $projects" :key="project" :href="project.link" target="_blank">
+      <a class="project" v-for="project in projects" :key="project" :href="project.link" target="_blank">
         
         <div class="innerContainer">
           <div class="projectPreview">
@@ -25,6 +25,14 @@
 
   </div>
 </template>
+
+<script setup>
+import { defineProps } from 'vue'
+
+defineProps({
+  projects: Array
+})
+</script>
 
 <style scoped lang="scss">
 @import '@/assets/styles/variables';

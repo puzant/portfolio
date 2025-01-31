@@ -59,9 +59,9 @@ onMounted(async () => {
   try {
     loading.value = true
     const [projectsRes, publicationsRes, travelImagesRes] = await Promise.all([
-      fetch('http://localhost:3000/projects/api').then(res => res.json()),
-      fetch('http://localhost:3000/publications/api').then(res => res.json()),
-      fetch('http://localhost:3000/travel-images/api').then(res => res.json()),
+      fetch(`${process.env.VUE_APP_API_URL}/projects/api`).then(res => res.json()),
+      fetch(`${process.env.VUE_APP_API_URL}/publications/api`).then(res => res.json()),
+      fetch(`${process.env.VUE_APP_API_URL}/travel-images/api`).then(res => res.json()),
     ])
 
     travelImages.value = travelImagesRes.images

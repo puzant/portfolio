@@ -6,7 +6,7 @@
     </div>
 
     <div class="publicationsContainer">
-      <a class="story" v-for="publication in $publications" :key="publication" :href="publication.link" target="_blank">
+      <a class="story" v-for="publication in formattedPublications" :key="publication._id" :href="publication.link" target="_blank">
         <div class="titleContainer">
           <p>{{ publication.title }}</p>
           <img class="arrow" src="@/assets/icons/arrow-up-right.svg" alt="arrow up right">
@@ -15,7 +15,7 @@
         <p>{{ publication.preview }}</p>
 
         <div>
-          <p>{{ publication.publishedDate }}</p>
+          <p>{{ publication.formattedDate }}</p>
           <p>{{ publication.duration }} min read</p>
         </div>
       </a>
@@ -24,16 +24,24 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: 'MyPublications',
-  data() {
-    return {
-      userId: null,
-      error: null
-    }
-  },
-}
+<script setup>
+import { defineProps, computed } from 'vue'
+
+const props = defineProps({
+  publications: Array
+})
+
+const formattedPublications = computed(() => {
+  return props.publications.map(publication => {
+    const date = new Date(publication.publishedDate);
+    const formattedDate = date.toLocaleDateString("en-US", {
+      month: "short",
+      day: "numeric",
+      year: "numeric"
+    });
+    return { ...publication, formattedDate }
+  })
+})
 </script>
 
 <style scoped lang="scss">

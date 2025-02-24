@@ -1,5 +1,6 @@
 <template>
   <div class="outerContainer">
+
     <VerticalAppNavigation ref="verticalNavigationRef" :viewed-section="viewedSection" />
     <AppNavigation ref="navigationRef" />
 

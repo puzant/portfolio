@@ -1,7 +1,7 @@
 <template>
   <div class="parentContainer">
     <div class="sidebarContainer">
-      <img class="profileImage" src="@/assets/profile-image.webp" alt="">
+      <img class="profileImage" src="@/assets/profile-image-2.webp" alt="">
 
       <img class="shape1" src="@/assets/icons/shape-1.svg" alt="shape 1">
       <img class="shape2" src="@/assets/icons/shape-2.svg" alt="shape 2">
@@ -9,7 +9,7 @@
 
       <div class="intro">
         <div>Puzant Bakjejian</div>
-        <div>Full Stack Engineer with a flair for crafting innovative and impactful digital experiences.</div>
+        <div>Full Stack Engineer & Traveler, building immersive digital experiences while chasing new adventures</div>
       </div>
 
       <div class="socialMediaLinks">

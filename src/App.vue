@@ -1,16 +1,15 @@
 <template>
-  <div class="outerContainer">
-
+  <div class="outer-container">
     <VerticalAppNavigation ref="verticalNavigationRef" :viewed-section="viewedSection" />
     <AppNavigation ref="navigationRef" />
 
     <TravelImages :images="placeholderOrImages" test="hello" />
 
-    <div class="mainContainer">
-      <div class="sidebarItemsContainer">
+    <div class="main-container">
+      <div class="sidebar-items-container">
         <SideBar ref="sidebarRef" />
       
-        <div class="mainSections">
+        <div class="main-sections">
           <AboutMe ref="aboutMeRef" />
           <RecentProjects ref="projectsRef" :projects="projects" />
           <TechSkills ref="skillsRef" />
@@ -56,7 +55,7 @@ let travelImages = ref([])
 
 let observer = null
 
-onMounted(async () => {
+async function fetchData() {
   try {
     loading.value = true
     const [projectsRes, publicationsRes, travelImagesRes] = await Promise.all([
@@ -73,7 +72,9 @@ onMounted(async () => {
   } finally {
     loading.value = false
   }
+}
 
+function setupObserver() {
   observer = new IntersectionObserver((entries) => {
     for (const entry of entries) {
       if (!entry.isIntersecting && entry.target.id === 'navbar') {
@@ -95,6 +96,11 @@ onMounted(async () => {
   refs.forEach(ref => {
     observer.observe(ref.value.$el)
   });
+}
+
+onMounted(async () => {
+  await fetchData()
+  setupObserver()
 })
 
 onUnmounted(() => {

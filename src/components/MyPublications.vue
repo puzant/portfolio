@@ -5,9 +5,9 @@
       <p>PUBLICATIONS</p>
     </div>
 
-    <div class="publicationsContainer">
+    <div class="publications-container">
       <a class="story" v-for="publication in formattedPublications" :key="publication._id" :href="publication.link" target="_blank">
-        <div class="titleContainer">
+        <div class="title-container">
           <p>{{ publication.title }}</p>
           <img class="arrow" src="@/assets/icons/arrow-up-right.svg" alt="arrow up right">
         </div>
@@ -53,7 +53,7 @@ const formattedPublications = computed(() => {
     @include sectionTitle;
   }
 
-  .publicationsContainer {
+  .publications-container {
     display: flex;
     flex-direction: column;
     margin: 20px 0;
@@ -78,7 +78,7 @@ const formattedPublications = computed(() => {
 
       @include liftEffect;
 
-      .titleContainer {
+      .title-container {
         margin: 10px 0;
         display: flex;
         justify-content: space-between;

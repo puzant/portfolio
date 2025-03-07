@@ -1,5 +1,5 @@
 <template>
-  <div class="contactForm" id="contact">
+  <div class="contact-form" id="contact">
     <div class="title">
       <p>LET'S WORK</p>
       <p>TOGETHER</p>
@@ -29,7 +29,7 @@
       <button type="submit" :disabled="!isFormValid">
         <span>Send</span>
         <img v-if="!isSending" src="@/assets/icons/send-icon.svg" alt="send email icon">
-        <img v-else class="loadingIndicator" src="@/assets/icons/loading-indicator.svg" alt="loading indicator">
+        <img v-else class="loading-indicator" src="@/assets/icons/loading-indicator.svg" alt="loading indicator">
       </button>
 
       <p>{{ contactStatusMessage }}</p>
@@ -156,7 +156,7 @@ export default {
 <style scoped lang="scss">
 @import '@/assets/styles/variables';
 
-.contactForm {
+.contact-form {
   opacity: 0;
   .title {
     @include sectionTitle;
@@ -261,7 +261,7 @@ export default {
         transition: transform 0.3s;
       }
 
-      .loadingIndicator {
+      .loading-indicator {
         animation: rotate180 1s infinite;
       }
 

@@ -32,7 +32,7 @@
         <a href="#contact">
           <span class="line-break">Let’s build something</span>
           
-          <div class="workTogetherBox">
+          <div class="work-together-box">
             <span>extraordinary together!</span>
             <img src="@/assets/icons/arrow-down-icon.svg" alt="arrow down icon">
           </div>
@@ -130,7 +130,7 @@ export default {
         text-decoration: none;
         color: $white;
 
-        .workTogetherBox {
+        .work-together-box {
           @include responsive-flex-container;
 
           img:last-child {

@@ -5,15 +5,15 @@
       <p>PROJECTS</p>
     </div>
 
-    <div class="projectsContainer">
+    <div class="projects-container">
       <a class="project" v-for="project in projects" :key="project" :href="project.link" target="_blank">
         
-        <div class="innerContainer">
-          <div class="projectPreview">
+        <div class="inner-container">
+          <div class="project-preview">
             <img :src="project.preview" :alt="project.description">
           </div>
 
-          <div class="projectInfo">
+          <div class="project-info">
             <p>{{ project.name }}</p>
             <p>{{ project.description }}</p>
           </div>
@@ -43,7 +43,7 @@ defineProps({
     @include sectionTitle;
   }
 
-  .projectsContainer {
+  .projects-container {
     display: flex;
     flex-direction: column;
     margin: 30px 0;
@@ -66,12 +66,12 @@ defineProps({
 
       @include liftEffect;
 
-      .innerContainer {
+      .inner-container {
         display: flex;
         align-items: center;
         gap: 20px;
         
-        .projectPreview {
+        .project-preview {
           aspect-ratio: .9649122807017544 / 1;
           overflow: hidden;
           width: 130px;
@@ -90,7 +90,7 @@ defineProps({
           }
         }
 
-        .projectInfo {
+        .project-info {
           display: flex;
           flex-direction: column;
           gap: 3px;

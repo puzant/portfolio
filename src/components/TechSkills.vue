@@ -5,7 +5,7 @@
       <p>SKILLS</p>
     </div>
 
-    <div class="skillsContainer">
+    <div class="skills-container">
       <div class="skill" v-for="skill in $skills" :key="skill">
         <div class="skillIcon"><img :src="skill.icon" alt="skills" /></div>
         <p>{{ skill.name }}</p>
@@ -24,7 +24,7 @@
     @include sectionTitle;
   }
 
-  .skillsContainer {
+  .skills-container {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 10px;

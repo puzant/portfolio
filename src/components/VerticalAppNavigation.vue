@@ -1,8 +1,8 @@
 <template>
-  <div class="verticalNavigation" id="verticalNavigation">
+  <div class="vertical-navigation" id="verticalNavigation">
     
     <a v-for="nav in navigation" :href="nav.href" :key="nav.name">
-      <div class="tooltip">
+      <div class="vertical-navigation__tooltip">
         <img :src="viewedSection === nav.href ? nav.activeIcon : nav.icon" alt="navigation icon">
         <div class="tooltip-text">{{ nav.name }}</div>
       </div>
@@ -26,7 +26,7 @@ import { defineProps } from 'vue'
 <style scoped lang="scss">
 @import '@/assets/styles/variables';
 
-.verticalNavigation {
+.vertical-navigation {
   z-index: 1000;
   background-color: $secondaryBackgroundColor;
   padding: 10px 20px;
@@ -47,7 +47,7 @@ import { defineProps } from 'vue'
     display: none;    
   }
 
-  .tooltip {
+  &__tooltip {
     @include tooltip(true)
   }
 }

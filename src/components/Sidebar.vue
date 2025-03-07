@@ -1,7 +1,7 @@
 <template>
-  <div class="parentContainer">
-    <div class="sidebarContainer">
-      <img class="profileImage" src="@/assets/profile-image-2.webp" alt="">
+  <div class="parent-container">
+    <div class="sidebar-container">
+      <img class="profile-image" src="@/assets/profile-image-2.webp" alt="">
 
       <img class="shape1" src="@/assets/icons/shape-1.svg" alt="shape 1">
       <img class="shape2" src="@/assets/icons/shape-2.svg" alt="shape 2">
@@ -12,7 +12,7 @@
         <div>Full Stack Engineer & Traveler, building immersive digital experiences while chasing new adventures</div>
       </div>
 
-      <div class="socialMediaLinks">
+      <div class="social-media-links">
         <a href="https://x.com/puzantBakjejian"><img src="@/assets/icons/x-logo.svg" alt="email"></a>
         <a target="_blank" href="https://github.com/puzant"><img src="@/assets/icons/github-logo.svg" alt="github"></a>
         <a target="_blank" href="https://www.instagram.com/puzantbakjejian/"><img src="@/assets/icons/instagram-logo.svg" alt="instagram"></a>
@@ -32,7 +32,7 @@ export default {
 <style scoped lang="scss">
 @import '@/assets/styles/variables';
 
-.parentContainer {
+.parent-container {
   position: sticky;
   top: 40px;
   opacity: 0;
@@ -40,7 +40,7 @@ export default {
     position: static;
   }
 
-  .sidebarContainer {
+  .sidebar-container {
     background-color: $white;
     padding: 30px;
     width: 344px;
@@ -57,7 +57,7 @@ export default {
       gap: 15px;
     }
 
-    .profileImage {
+    .profile-image {
       margin: 20px 0;
       width: 240px;
       height: 284px;
@@ -115,7 +115,7 @@ export default {
       }
     }
 
-    .socialMediaLinks {
+    .social-media-links {
       width: fit-content;
       display: flex;
       align-items: center;

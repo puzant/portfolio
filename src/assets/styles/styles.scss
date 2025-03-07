@@ -43,10 +43,10 @@ html:focus-within {
   scroll-behavior: smooth;
 }
 
-.outerContainer {
+.outer-container {
   position: relative;
 
-  .travelImages {
+  .travel-image {
     z-index: 1;
     display: flex;
     gap: 32px;
@@ -60,7 +60,15 @@ html:focus-within {
       gap: 25px;
     }
 
-    .image {
+    &--even {
+      transform: scale(1) rotate(1.3deg) translateZ(0px);
+    }
+
+    &--odd {
+      transform: scale(1) rotate(-1.3deg) translateZ(0px);
+    }
+    
+    &__image {
       position: relative;
       width: 11rem;
       flex: none;
@@ -70,23 +78,19 @@ html:focus-within {
       border-radius: 12px;
       background-color: rgb(39 39 42/.5);
 
-      .placeholder {
+      &__placeholder {
         width: 100%;
         height: 100%;
         animation: pulse 2s infinite;
       }
 
-      &.even {
-        transform: scale(1) rotate(1.3deg) translateZ(0px);
-      }
-
-      &.odd {
-        transform: scale(1) rotate(-1.3deg) translateZ(0px);
-      }
-
       &:hover {
         transform: scale(1.1) rotate(0deg) translateZ(0px);
-        transition: transform 0.2s infinite ;
+        transition: transform 0.2s infinite;
+
+        .travel-image__overlay {
+          opacity: 1;
+        }
       }
 
       img {
@@ -99,37 +103,32 @@ html:focus-within {
         height: 100%;
         object-fit: cover;
       }
+    }
 
-      .overlay {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        height: 40%;
-        background: linear-gradient(to top, #000000b3, #00000000);
-        transition: opacity 0.3s ease;
-        color: $white;
-        opacity: 0;
-        padding: 10px;
-        font-size: 14px;
-        display: flex;
-        align-items: end;
-      }
-
-      &:hover .overlay {
-        opacity: 1;
-      }
-
+    &__overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 40%;
+      background: linear-gradient(to top, #000000b3, #00000000);
+      transition: opacity 0.3s ease;
+      color: $white;
+      opacity: 0;
+      padding: 10px;
+      font-size: 14px;
+      display: flex;
+      align-items: end;
     }
   }
 
-  .mainContainer {
+  .main-container {
     width: 80%;
     margin: 0 auto;
     @media (max-width: 768px) {
       width: 90%; 
     }
-    .sidebarItemsContainer {
+    .sidebar-items-container {
       display: flex;
       align-items: start;
       gap: 100px;
@@ -143,7 +142,7 @@ html:focus-within {
       }
     }
   
-    .mainSections {
+    .main-sections {
       width: 100%;
       display: flex;
       flex-direction: column;

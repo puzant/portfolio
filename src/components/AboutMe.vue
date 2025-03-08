@@ -1,11 +1,11 @@
 <template>
   <div class="container" id="about">
-    <div class="title">
+    <div class="container__title">
       <p>FULL STACK</p>
       <p>ENGINEER</p>
     </div>
 
-    <div class="intro">
+    <div class="container__intro">
       👋 With over five years of professional experience in software development, 
       I possess expertise in a range of JavaScript frameworks, including React, Vue, and Angular. 
       My proficiency extends beyond the client-side as I also have a strong grasp of back-end technologies such as Node.js, MySQL, and MongoDB.
@@ -43,23 +43,16 @@
   </div>
 </template>
 
-<script>
-
-export default {
-  name: 'AboutMe'
-}
-</script>
-
 <style scoped lang="scss">
 @import '@/assets/styles/variables';
 
 .container {
   opacity: 0;
-  .title {
+  &__title {
     @include sectionTitle;
   }
 
-  .intro {
+  &__intro {
     color: $primaryColor;
     line-height: 1.6;
     margin: 30px 0;
@@ -70,17 +63,17 @@ export default {
     }
   }
 
-  .line-break {
-    display: block;
-    line-height: 1.4;
-  }
-
   .stats-container {
     @include responsive-flex-container;
     margin: 60px 0;
 
     @media (max-width: 768px) {
       margin: 10px 0;
+    }
+
+    .line-break {
+      display: block;
+      line-height: 1.4;
     }
 
     .stats {

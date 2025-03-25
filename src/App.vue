@@ -1,9 +1,10 @@
 <template>
+  <div></div>
   <div class="outer-container">
     <VerticalAppNavigation ref="verticalNavigationRef" :viewed-section="viewedSection" />
     <AppNavigation ref="navigationRef" />
 
-    <TravelImages :images="placeholderOrImages" test="hello" />
+    <TravelImages :images="placeholderOrImages" />
 
     <div class="main-container">
       <div class="sidebar-items-container">
@@ -59,14 +60,14 @@ async function fetchData() {
   try {
     loading.value = true
     const [projectsRes, publicationsRes, travelImagesRes] = await Promise.all([
-      fetch(`${process.env.VUE_APP_API_URL}/projects/api`).then(res => res.json()),
-      fetch(`${process.env.VUE_APP_API_URL}/publications/api`).then(res => res.json()),
-      fetch(`${process.env.VUE_APP_API_URL}/travel-images/api`).then(res => res.json()),
+      fetch(`${process.env.VUE_APP_API_URL}/v1/projects`).then(res => res.json()),
+      fetch(`${process.env.VUE_APP_API_URL}/v1/publications`).then(res => res.json()),
+      fetch(`${process.env.VUE_APP_API_URL}/v1/travel-images`).then(res => res.json()),
     ])
 
-    travelImages.value = travelImagesRes.images
-    projects.value = projectsRes.projects
-    publications.value = publicationsRes.publications
+    travelImages.value = travelImagesRes.data
+    projects.value = projectsRes.data
+    publications.value = publicationsRes.data
   } catch (err) {
     console.log(err)
   } finally {

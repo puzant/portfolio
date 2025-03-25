@@ -39,6 +39,7 @@ const formattedPublications = computed(() => {
       day: "numeric",
       year: "numeric"
     });
+    
     return { ...publication, formattedDate }
   })
 })

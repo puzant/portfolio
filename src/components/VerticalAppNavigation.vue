@@ -36,7 +36,6 @@ import { defineProps } from 'vue'
   height: 230px;
   border-top-left-radius: 14px;
   border-bottom-left-radius: 14px;
-
   margin: 30px auto;
   position: fixed;
   right: 0;
@@ -44,7 +43,7 @@ import { defineProps } from 'vue'
   opacity: 0;
 
   @media (max-width: 768px) {
-    display: none;    
+    display: none;
   }
 
   &__tooltip {

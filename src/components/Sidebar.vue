@@ -7,16 +7,18 @@
       <img class="shape2" src="@/assets/icons/shape-2.svg" alt="shape 2">
       <img class="shape4" src="@/assets/icons/shape-4.svg" alt="shape 4">
 
-      <div class="intro">
-        <div>Puzant Bakjejian</div>
-        <div>Full Stack Engineer & Traveler, building immersive digital experiences while chasing new adventures</div>
-      </div>
+      <div class="bio">
+        <div class="intro">
+          <div>Puzant Bakjejian</div>
+          <div>Full Stack Engineer & Traveler, building immersive digital experiences while chasing new adventures</div>
+        </div>
 
-      <div class="social-media-links">
-        <a href="https://x.com/puzantBakjejian"><img src="@/assets/icons/x-logo.svg" alt="email"></a>
-        <a target="_blank" href="https://github.com/puzant"><img src="@/assets/icons/github-logo.svg" alt="github"></a>
-        <a target="_blank" href="https://www.instagram.com/puzantbakjejian/"><img src="@/assets/icons/instagram-logo.svg" alt="instagram"></a>
-        <a target="_blank" href="https://www.linkedin.com/in/puzant-b-006426108/"><img src="@/assets/icons/linkedin-logo.svg" alt="linkedin"></a>
+        <div class="social-media-links">
+          <a href="https://x.com/puzantBakjejian"><img src="@/assets/icons/x-logo.svg" alt="email"></a>
+          <a target="_blank" href="https://github.com/puzant"><img src="@/assets/icons/github-logo.svg" alt="github"></a>
+          <a target="_blank" href="https://www.instagram.com/puzantbakjejian/"><img src="@/assets/icons/instagram-logo.svg" alt="instagram"></a>
+          <a target="_blank" href="https://www.linkedin.com/in/puzant-b-006426108/"><img src="@/assets/icons/linkedin-logo.svg" alt="linkedin"></a>
+        </div>
       </div>
     </div>
   </div>
@@ -33,39 +35,44 @@ export default {
 @import '@/assets/styles/variables';
 
 .parent-container {
-  position: sticky;
   top: 40px;
   opacity: 0;
-  @media (max-width: 768px) {
-    position: static;
+  position: static;
+
+  @media (min-width: 1024px) {
+    position: sticky;
   }
 
   .sidebar-container {
     background-color: $white;
     padding: 30px;
-    width: 344px;
     height: fit-content;
     border-radius: 12px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 30px;
     position: relative;
+    width: 100%;
+    gap: 15px;
 
-    @media (max-width: 768px) {
-      width: 100%;
-      gap: 15px;
+    @media (min-width: 768px) {
+      flex-direction: row;
+    }
+
+    @media (min-width: 1024px) {
+      width: 344px;
+      flex-direction: column;
     }
 
     .profile-image {
       margin: 20px 0;
       width: 240px;
-      height: 284px;
+      height: 210px;
       object-fit: cover;
       border-radius: 12px;
 
-      @media (max-width: 768px) {
-        height: 210px;
+      @media (min-width: 768px) {
+        height: 284px;
       }
 
     }
@@ -90,42 +97,49 @@ export default {
       position: absolute;
       top: 92%;
       left: 2%;
-      width: 70px;
+      width: 55px;
       transform: translateX(-50%);
-      @media (max-width: 768px) {
-        width: 55px;
+
+      @media (min-width: 768px) {
+        width: 70px;
       }
     }
 
-    .intro {
-      text-align: center;
+    .bio {
       display: flex;
       flex-direction: column;
-      gap: 8px;
-
-      div:first-child {
-        font-size: 35px;
-        font-size: clamp(24px, 6vw, 35px);
-        font-weight: bold;
-      }
-
-      div:last-child {
-        color: #6a6b6e;
-        font-size: 18px;
-      }
-    }
-
-    .social-media-links {
-      width: fit-content;
-      display: flex;
-      align-items: center;
       gap: 20px;
 
-      img {
-        cursor: pointer;
-        transition: transform 0.3s;
-        &:hover {
-          transform: translateY(-8px);
+      .intro {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+
+        div:first-child {
+          font-size: 35px;
+          font-size: clamp(24px, 6vw, 35px);
+          font-weight: bold;
+        }
+
+        div:last-child {
+          color: #6a6b6e;
+          font-size: 18px;
+          width: 100%;
+          max-width: 315px;
+        }
+      }
+
+      .social-media-links {
+        width: fit-content;
+        display: flex;
+        gap: 20px;
+
+        img {
+          cursor: pointer;
+          transition: transform 0.3s;
+          &:hover {
+            transform: translateY(-8px);
+          }
         }
       }
     }

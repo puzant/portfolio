@@ -46,10 +46,10 @@ defineProps({
   .projects-container {
     display: flex;
     flex-direction: column;
-    margin: 30px 0;
+    margin: 10px 0;
 
-    @media (max-width: 768px) {
-      margin: 10px 0;
+    @media (min-width: 768px) {
+      margin: 30px 0;
     }
     
     .project {
@@ -76,10 +76,10 @@ defineProps({
           overflow: hidden;
           width: 130px;
           height: 160px;
-
-          @media (max-width: 768px) {
+          
+          @media (min-width: 768px) {
             width: 90px;
-            height: 93px;
+            height: 93px;  
           }
 
           img {

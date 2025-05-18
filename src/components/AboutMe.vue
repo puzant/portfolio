@@ -55,20 +55,20 @@
   &__intro {
     color: $primaryColor;
     line-height: 1.6;
-    margin: 30px 0;
+    width: 100%;
+    margin: 10px 0;
     
-    @media (max-width: 768px) {
-      width: 100%;
-      margin: 10px 0;
+    @media (min-width: 768px) {
+      margin: 30px 0;
     }
   }
 
   .stats-container {
     @include responsive-flex-container;
-    margin: 60px 0;
+    margin: 10px 0;
 
-    @media (max-width: 768px) {
-      margin: 10px 0;
+    @media (min-width: 768px) {
+      margin: 60px 0;
     }
 
     .line-break {
@@ -105,7 +105,6 @@
       padding: 20px;
       margin: 20px 0;
       border-radius: 12px;
-      width: fit-content;
       font-size: 20px;
       background-color: $orange;
       color: $white;
@@ -114,9 +113,10 @@
       gap: 10px;
       align-items: start;
       cursor: pointer;
+      width: 100%;
       
-      @media (max-width: 768px) {
-        width: 100%;
+      @media (min-width: 768px) {
+        width: fit-content;
       }
 
       a {

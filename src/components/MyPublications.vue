@@ -57,10 +57,10 @@ const formattedPublications = computed(() => {
   .publications-container {
     display: flex;
     flex-direction: column;
-    margin: 20px 0;
+    margin: 10px 0;
     
-    @media (max-width: 768px) {
-      margin: 10px 0;
+    @media (min-width: 768px) {
+      margin: 20px 0;
     }
 
     .story {
@@ -69,12 +69,12 @@ const formattedPublications = computed(() => {
       flex-direction: column;
       border-radius: 16px;
       transition: 0.3s ease, box-shadow 0.3s ease;
-      padding: 30px 15px;
       cursor: pointer;
       border: 1px solid transparent;
+      padding: 20px 10px;
       
-      @media (max-width: 768px) {
-        padding: 20px 10px;
+      @media (min-width: 768px) {
+        padding: 30px 15px;
       }
 
       @include liftEffect;

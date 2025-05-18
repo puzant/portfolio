@@ -165,10 +165,10 @@ export default {
   form {
     display: flex;
     flex-direction: column;
-    margin: 50px 0;
+    margin: 10px 0;
 
-    @media (max-width: 768px) {
-      margin: 10px 0;
+    @media (min-width: 768px) {
+      margin: 50px 0;
     }
 
     .error {
@@ -179,11 +179,11 @@ export default {
     }
     
     .container {
-      display: flex;
-      gap: 12px;
+      flex-direction: column;
 
-      @media (max-width: 768px) {
-        flex-direction: column;
+      @media (min-width: 768px) {
+        display: flex;
+        gap: 12px;
       }
 
 

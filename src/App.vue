@@ -1,5 +1,4 @@
 <template>
-  <div></div>
   <div class="outer-container">
     <VerticalAppNavigation ref="verticalNavigationRef" :viewed-section="viewedSection" />
     <AppNavigation ref="navigationRef" />

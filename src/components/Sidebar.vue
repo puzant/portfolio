@@ -5,7 +5,6 @@
 
       <img class="shape1" src="@/assets/icons/shape-1.svg" alt="shape 1">
       <img class="shape2" src="@/assets/icons/shape-2.svg" alt="shape 2">
-      <img class="shape4" src="@/assets/icons/shape-4.svg" alt="shape 4">
 
       <div class="bio">
         <div class="intro">
@@ -14,7 +13,7 @@
         </div>
 
         <div class="social-media-links">
-          <a href="https://x.com/puzantBakjejian"><img src="@/assets/icons/x-logo.svg" alt="email"></a>
+          <a target="_blank" href="https://x.com/puzantBakjejian"><img src="@/assets/icons/x-logo.svg" alt="X"></a>
           <a target="_blank" href="https://github.com/puzant"><img src="@/assets/icons/github-logo.svg" alt="github"></a>
           <a target="_blank" href="https://www.instagram.com/puzantbakjejian/"><img src="@/assets/icons/instagram-logo.svg" alt="instagram"></a>
           <a target="_blank" href="https://www.linkedin.com/in/puzant-b-006426108/"><img src="@/assets/icons/linkedin-logo.svg" alt="linkedin"></a>
@@ -65,7 +64,7 @@ export default {
     }
 
     .profile-image {
-      margin: 20px 0;
+      margin: 20px;
       width: 240px;
       height: 210px;
       object-fit: cover;

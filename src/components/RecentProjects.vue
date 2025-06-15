@@ -60,26 +60,32 @@ defineProps({
       cursor: pointer;
       border-radius: 16px;
       transition: 0.3s ease, box-shadow 0.3s ease;
-      padding: 16px 15px;
+      padding: 16px 10px;
       text-decoration: none;
       border: 1px solid transparent;
 
       @include liftEffect;
 
       .inner-container {
+        width: 100%;
         display: flex;
-        align-items: center;
+        flex-direction: column;
+        align-items: left;
         gap: 20px;
         
+        @media (min-width: 768px) {
+          flex-direction: row;
+        }
+
         .project-preview {
           aspect-ratio: .9649122807017544 / 1;
           overflow: hidden;
-          width: 130px;
           height: 160px;
-          
+          width: 92%;
+
           @media (min-width: 768px) {
-            width: 90px;
-            height: 93px;  
+            height: 93px;
+            width: auto;
           }
 
           img {
@@ -87,6 +93,10 @@ defineProps({
             width: 100%;
             object-fit: cover;
             border-radius: 8px;
+          }
+
+          @media (min-width: 768px) {
+            width: auto;
           }
         }
 

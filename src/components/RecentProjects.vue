@@ -6,7 +6,7 @@
     </div>
 
     <div class="projects-container">
-      <a class="project" v-for="project in projects" :key="project" :href="project.link" target="_blank">
+      <a class="project" v-for="project in projects.filter(p => p.active)" :key="project" :href="project.link" target="_blank">
         
         <div class="inner-container">
           <div class="project-preview">

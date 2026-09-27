@@ -78,25 +78,21 @@ defineProps({
         }
 
         .project-preview {
-          aspect-ratio: .9649122807017544 / 1;
+          aspect-ratio: 16 / 9;
           overflow: hidden;
-          height: 160px;
-          width: 92%;
+          width: 100%;
+          flex-shrink: 0;
+          border-radius: 8px;
 
           @media (min-width: 768px) {
-            height: 93px;
-            width: auto;
+            width: 160px;
           }
 
           img {
             height: 100%;
             width: 100%;
             object-fit: cover;
-            border-radius: 8px;
-          }
-
-          @media (min-width: 768px) {
-            width: auto;
+            display: block;
           }
         }
 
@@ -116,6 +112,11 @@ defineProps({
       }
       .arrow {
         align-self: flex-start;
+        display: none;
+
+        @media (min-width: 768px) {
+          display: block
+        }
       }
     }
   }

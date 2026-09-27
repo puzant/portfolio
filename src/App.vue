@@ -23,7 +23,7 @@
 </template>
 
 <script setup>
-import { onMounted, onUnmounted, ref, computed } from 'vue'
+import { onMounted, onUnmounted, onUpdated, nextTick, ref, computed } from 'vue'
 import AppNavigation from '@/components/AppNavigation.vue'
 import VerticalAppNavigation from '@/components/VerticalAppNavigation.vue'
 import SideBar from '@/components/Sidebar.vue'
@@ -74,6 +74,8 @@ async function fetchData() {
   }
 }
 
+const observed = new WeakSet()
+
 function setupObserver() {
   observer = new IntersectionObserver((entries) => {
     for (const entry of entries) {
@@ -94,12 +96,21 @@ function setupObserver() {
   },{ threshold: .2 });
 
   refs.forEach(ref => {
-    observer.observe(ref.value.$el)
+    const el = ref.value?.$el ?? ref.value 
+    if (el && el.nodeType === 1 && !observed.has(el)) {
+      observer.observe(el)
+      observed.add(el)
+    }
   });
 }
 
 onMounted(async () => {
   await fetchData()
+  setupObserver()
+})
+
+onUpdated(async () => {
+  await nextTick()
   setupObserver()
 })
 

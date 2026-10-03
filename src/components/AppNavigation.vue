@@ -1,6 +1,5 @@
 <template>
   <div class="navigation" id="navbar">
-    
     <a v-for="nav in navigation" :href="nav.href" :key="nav.name">
       <div class="tooltip">
         <img :src="nav.icon" alt="navigation icon">
@@ -19,6 +18,7 @@ export default {
         {href: '#home', name: 'Home', icon: require('@/assets/icons/home-icon.svg')},
         {href: '#projects', name: 'Projects', icon: require('@/assets/icons/project-icon.svg')},
         {href: '#skills', name: 'Skills', icon: require('@/assets/icons/skill-icon.svg')},
+        {href: '#caseStudies', name: 'Case Studies', icon: require('@/assets/icons/case-study-icon.svg')},
         {href: '#stories', name: 'Publications', icon: require('@/assets/icons/write-icon.svg')},
         {href: '#contact', name: 'Contact', icon: require('@/assets/icons/contact-icon.svg')}
       ]
@@ -39,6 +39,9 @@ export default {
   width: 300px;
   margin: 30px auto;
 
+  img {
+    height: 20px;
+  }
   .tooltip {
     @include tooltip
   }

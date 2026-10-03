@@ -13,6 +13,7 @@
           <AboutMe ref="aboutMeRef" />
           <RecentProjects ref="projectsRef" :projects="projects" />
           <TechSkills ref="skillsRef" />
+          <CaseStudies ref="caseStudiesRef" :caseStudies="caseStudies" />
           <MyPublications ref="publicationsRef" :publications="publications" />
           <ContactForm ref="contactFormRef" />
         </div>
@@ -34,6 +35,7 @@ import AppFooter from '@/components/AppFooter.vue'
 import TechSkills from '@/components/TechSkills.vue'
 import MyPublications from '@/components/MyPublications.vue'
 import TravelImages from '@/components/TravelImages.vue'
+import CaseStudies from '@/components/CaseStudies.vue'
 
 const navigationRef = ref(null)
 const verticalNavigationRef = ref(null)
@@ -41,32 +43,36 @@ const sidebarRef = ref(null)
 const projectsRef = ref(null)
 const aboutMeRef = ref(null)
 const skillsRef = ref(null)
+const caseStudiesRef = ref(null)
 const publicationsRef = ref(null)
 const contactFormRef = ref(null)
 const loading = ref(false)
 
-const refs = [sidebarRef, projectsRef, aboutMeRef, skillsRef, publicationsRef, contactFormRef, navigationRef, verticalNavigationRef]
+const refs = [sidebarRef, projectsRef, aboutMeRef, skillsRef, caseStudiesRef, publicationsRef, contactFormRef, navigationRef, verticalNavigationRef]
 // used to check which scetion is the user currently is on
 let viewedSection = ref(null)
 
 let projects = ref([])
 let publications = ref([])
 let travelImages = ref([])
+let caseStudies = ref([])
 
 let observer = null
 
 async function fetchData() {
   try {
     loading.value = true
-    const [projectsRes, publicationsRes, travelImagesRes] = await Promise.all([
+    const [projectsRes, publicationsRes, travelImagesRes, caseStudiesRes] = await Promise.all([
       fetch(`${process.env.VUE_APP_API_URL}/v1/projects`).then(res => res.json()),
       fetch(`${process.env.VUE_APP_API_URL}/v1/publications`).then(res => res.json()),
       fetch(`${process.env.VUE_APP_API_URL}/v1/travel-images`).then(res => res.json()),
+      fetch(`${process.env.VUE_APP_API_URL}/v1/case-studies`).then(res => res.json())
     ])
 
     travelImages.value = travelImagesRes.data
     projects.value = projectsRes.data
     publications.value = publicationsRes.data
+    caseStudies.value = caseStudiesRes.data
   } catch (err) {
     console.log(err)
   } finally {

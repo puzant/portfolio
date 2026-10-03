@@ -38,6 +38,10 @@ import { defineProps } from 'vue'
     display: none;
   }
 
+  img {
+    height: 20px;
+  }
+
   &__tooltip {
     @include tooltip(true)
   }

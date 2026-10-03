@@ -6,7 +6,7 @@
     </div>
 
     <div class="container__intro">
-      👋 With over five years of professional experience in software development, 
+      👋 With over six years of professional experience in software development, 
       I possess expertise in a range of JavaScript frameworks, including React, Vue, and Angular. 
       My proficiency extends beyond the client-side as I also have a strong grasp of back-end technologies such as Node.js, MySQL, and MongoDB.
     </div>
@@ -14,13 +14,13 @@
     <div class="stats-container">
       <div class="stats">
         <div>
-          <span>+6</span>
+          <span>6+</span>
           <span class="line-break">YEARS OF</span>
           <span class="line-break">EXPERIENCE</span>
         </div>
 
         <div>
-          <span>+4</span>
+          <span>20+</span>
           <span class="line-break">PROJECTS</span>
           <span class="line-break">COMPLETED</span>
         </div>

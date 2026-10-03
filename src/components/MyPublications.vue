@@ -16,7 +16,7 @@
 
         <div>
           <p>{{ publication.formattedDate }}</p>
-          <p>{{ publication.duration }} min read</p>
+          <p>{{ publication.duration }} read</p>
         </div>
       </a>
     </div>

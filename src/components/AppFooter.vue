@@ -25,5 +25,15 @@
   display: flex;
   font-size: clamp(14px, 4vw, 22px);
   gap: 10px;
+
+  div {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    img {
+      height: 20px;
+    }
+  }
 }
 </style>

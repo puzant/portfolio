@@ -1,15 +1,15 @@
 <template>
-  <div class="footer-container">
+  <footer class="footer-container">
     <div>
       <span>Made with </span>
-      <img src="@/assets/icons/heart-icon.svg" alt="heart icon">
+      <img src="@/assets/icons/heart-icon.svg" alt="love">
     </div>
 
     <div>
       <span>| Powered By </span>
-      <img src="@/assets/icons/vue-logo.svg" alt="vuejs icon">
+      <img src="@/assets/icons/vue-logo.svg" alt="Vue.js">
     </div>
-  </div>
+  </footer>
 </template>
 
 <style scoped lang="scss">

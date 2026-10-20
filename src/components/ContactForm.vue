@@ -1,7 +1,7 @@
 <template>
   <div class="contact-form" id="contact">
     <div class="title">
-      <p>LET'S WORK</p>
+      <h2>LET'S WORK</h2>
       <p>TOGETHER</p>
     </div>
 
@@ -28,8 +28,8 @@
         
       <button type="submit" :disabled="!isFormValid">
         <span>Send</span>
-        <img v-if="!isSending" src="@/assets/icons/send-icon.svg" alt="send email icon">
-        <img v-else class="loading-indicator" src="@/assets/icons/loading-indicator.svg" alt="loading indicator">
+        <img v-if="!isSending" src="@/assets/icons/send-icon.svg" alt="">
+        <img v-else class="loading-indicator" src="@/assets/icons/loading-indicator.svg" alt="">
       </button>
 
       <p>{{ contactStatusMessage }}</p>
@@ -224,7 +224,7 @@ export default {
       }
 
       textarea {
-        font-family: 'Poppins', sans-serif;
+        font-family: 'Poppins', 'Poppins Fallback', sans-serif;
         @include styledInput;
         &:focus {
           @include inputFocus;
@@ -244,7 +244,7 @@ export default {
       justify-content: center;
       gap: 4px;
       border: none;
-      background-color: $orange;
+      background-color: $orangeDeep;
       padding: 10px 15px;
       color: $white;
       border-radius: 8px;

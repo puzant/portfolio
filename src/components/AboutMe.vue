@@ -1,7 +1,7 @@
 <template>
   <div class="container" id="about">
     <div class="container__title">
-      <p>FULL STACK</p>
+      <h1>FULL STACK</h1>
       <p>ENGINEER</p>
     </div>
 
@@ -27,14 +27,14 @@
       </div>
 
       <div class="talkBtn">
-        <img src="@/assets/icons/stack-icon.svg" alt="stack icon">
+        <img src="@/assets/icons/stack-icon.svg" alt="">
         
         <a href="#contact">
           <span class="line-break">Let’s build something</span>
           
           <div class="work-together-box">
             <span>extraordinary together!</span>
-            <img src="@/assets/icons/arrow-down-icon.svg" alt="arrow down icon">
+            <img src="@/assets/icons/arrow-down-icon.svg" alt="">
           </div>
         </a>
       </div>
@@ -106,7 +106,7 @@
       margin: 20px 0;
       border-radius: 12px;
       font-size: 20px;
-      background-color: $orange;
+      background-color: $orangeDeep;
       color: $white;
       display: flex;
       flex-direction: column;

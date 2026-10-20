@@ -1,7 +1,7 @@
 <template>
   <div id="stories" class="container">
     <div class="title">
-      <p>RECENT</p>
+      <h2>RECENT</h2>
       <p>PUBLICATIONS</p>
     </div>
 
@@ -9,7 +9,7 @@
       <a class="story" v-for="publication in formattedPublications" :key="publication._id" :href="publication.link" target="_blank">
         <div class="title-container">
           <p>{{ publication.title }}</p>
-          <img class="arrow" src="@/assets/icons/arrow-up-right.svg" alt="arrow up right">
+          <img class="arrow" src="@/assets/icons/arrow-up-right.svg" alt="">
         </div>
 
         <p>{{ publication.preview }}</p>

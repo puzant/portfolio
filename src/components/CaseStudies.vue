@@ -1,7 +1,7 @@
 <template>
   <div id="caseStudies" class="container">
     <div class="title">
-      <p>CASE</p>
+      <h2>CASE</h2>
       <p>STUDIES</p>
     </div>
 
@@ -17,7 +17,7 @@
 
           <div class="case-study__footer">
             <p>{{ formattedDate(study.published) }}</p>
-            <img src="@/assets/icons/arrow-up-right.svg" alt="open case study">
+            <img src="@/assets/icons/arrow-up-right.svg" alt="">
           </div>
         </div>
       </a>

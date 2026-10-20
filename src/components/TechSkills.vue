@@ -1,13 +1,13 @@
 <template>
   <div id="skills" class="container">
     <div class="title">
-      <p>TECH</p>
+      <h2>TECH</h2>
       <p>SKILLS</p>
     </div>
 
     <div class="skills-container">
       <div class="skill" v-for="skill in $skills" :key="skill">
-        <div class="skillIcon"><img :src="skill.icon" alt="skills" /></div>
+        <div class="skillIcon"><img :src="skill.icon" alt="" /></div>
         <p>{{ skill.name }}</p>
       </div>
     </div>

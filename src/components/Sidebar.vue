@@ -3,8 +3,8 @@
     <div class="sidebar-container">
       <img class="profile-image" src="@/assets/profile-image-2.webp" alt="">
 
-      <img class="shape1" src="@/assets/icons/shape-1.svg" alt="shape 1">
-      <img class="shape2" src="@/assets/icons/shape-2.svg" alt="shape 2">
+      <img class="shape1" src="@/assets/icons/shape-1.svg" alt="">
+      <img class="shape2" src="@/assets/icons/shape-2.svg" alt="">
 
       <div class="bio">
         <div class="intro">

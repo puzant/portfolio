@@ -8,21 +8,53 @@
     <meta name="keywords" content="Full Stack Engineer, Web Developer, Software Engineer, Portfolio, Puzant Bakjejian, Personal Website, JavaScript, React, Tailwind CSS, Vite, Storyblok" />
     <meta name="author" content="Puzant Bakjejian" />
     <meta name="robots" content="index, follow" />
-    <meta name="og:title" content="Puzant Bakjejian | Full Stack Developer Portfolio" />
-    <meta name="og:description" content="Dive into my professional journey, projects, and skills as a full stack developer creating impactful digital experiences." />
-    <meta name="og:image" content="https://puzant.netlify.app/portfolio-screenshot.png" />
-    <meta name="og:url" content="https://puzant.netlify.app/" />
-    <meta name="og:type" content="website" />
+    <meta property="og:title" content="Puzant Bakjejian | Full Stack Developer Portfolio" />
+    <meta property="og:description" content="Dive into my professional journey, projects, and skills as a full stack developer creating impactful digital experiences." />
+    <meta property="og:image" content="https://puzant.netlify.app/portfolio-screenshot.png" />
+    <meta property="og:url" content="https://puzant.netlify.app/" />
+    <meta property="og:type" content="website" />
 
+    <link rel="preload" href="<%= BASE_URL %>fonts/Poppins-Regular.woff2" as="font" type="font/woff2" crossorigin>
+    <style>
+      @font-face {
+        font-family: 'Poppins';
+        src: url('<%= BASE_URL %>fonts/Poppins-Regular.woff2') format('woff2'),
+             url('<%= BASE_URL %>fonts/Poppins-Regular.ttf') format('truetype');
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+      /* metric-matched fallback so the font swap doesn't shift the layout */
+      @font-face {
+        font-family: 'Poppins Fallback';
+        src: local('Arial');
+        size-adjust: 112.163%;
+        ascent-override: 93.613%;
+        descent-override: 31.202%;
+        line-gap-override: 0%;
+      }
+    </style>
     <link rel="icon" href="<%= BASE_URL %>favicon.svg">
     <title>Puzant's Portfolio</title>
-    <!-- Google tag (gtag.js) -->
-     <script async src="https://www.googletagmanager.com/gtag/js?id=G-4CL7DWTW6C"></script>
-     <script>
-     window.dataLayer = window.dataLayer || [];
-     function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-4CL7DWTW6C');
+    <!-- Google tag (gtag.js), deferred until the page is idle so it stays off the critical path -->
+    <script>
+      window.addEventListener('load', function () {
+        var loadGtag = function () {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-4CL7DWTW6C');
+          var s = document.createElement('script');
+          s.async = true;
+          s.src = 'https://www.googletagmanager.com/gtag/js?id=G-4CL7DWTW6C';
+          document.head.appendChild(s);
+        };
+        if (window.requestIdleCallback) {
+          window.requestIdleCallback(loadGtag, { timeout: 3000 });
+        } else {
+          setTimeout(loadGtag, 2000);
+        }
+      });
     </script>
   </head>
   <body>

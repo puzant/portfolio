@@ -1,11 +1,15 @@
 <template>
   <div class="outer-container">
-    <VerticalAppNavigation ref="verticalNavigationRef" :viewed-section="viewedSection" />
-    <AppNavigation ref="navigationRef" />
+    <nav class="app-navigation" aria-label="Primary">
+      <VerticalAppNavigation ref="verticalNavigationRef" :viewed-section="viewedSection" />
+      <AppNavigation ref="navigationRef" />
+    </nav>
 
-    <TravelImages :images="placeholderOrImages" />
+    <section aria-label="Travel photography">
+      <TravelImages :images="placeholderOrImages" />
+    </section>
 
-    <div class="main-container">
+    <main class="main-container">
       <div class="sidebar-items-container">
         <SideBar ref="sidebarRef" />
       
@@ -19,7 +23,7 @@
         </div>
       </div>
       <AppFooter />
-    </div>
+    </main>
   </div>
 </template>
 
@@ -63,10 +67,10 @@ async function fetchData() {
   try {
     loading.value = true
     const [projectsRes, publicationsRes, travelImagesRes, caseStudiesRes] = await Promise.all([
-      fetch(`${process.env.VUE_APP_API_URL}/v1/projects`).then(res => res.json()),
-      fetch(`${process.env.VUE_APP_API_URL}/v1/publications`).then(res => res.json()),
-      fetch(`${process.env.VUE_APP_API_URL}/v1/travel-images`).then(res => res.json()),
-      fetch(`${process.env.VUE_APP_API_URL}/v1/case-studies`).then(res => res.json())
+      fetch(`${'https://portfolio-backend-gq2s.onrender.com'}/v1/projects`).then(res => res.json()),
+      fetch(`${'https://portfolio-backend-gq2s.onrender.com'}/v1/publications`).then(res => res.json()),
+      fetch(`${'https://portfolio-backend-gq2s.onrender.com'}/v1/travel-images`).then(res => res.json()),
+      fetch(`${'https://portfolio-backend-gq2s.onrender.com'}/v1/case-studies`).then(res => res.json())
     ])
 
     travelImages.value = travelImagesRes.data
@@ -110,9 +114,11 @@ function setupObserver() {
   });
 }
 
-onMounted(async () => {
-  await fetchData()
+onMounted(() => {
+  // set up the observer immediately so above-the-fold sections fade in without
+  // waiting on the API, then load the data in the background
   setupObserver()
+  fetchData()
 })
 
 onUpdated(async () => {

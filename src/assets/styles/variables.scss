@@ -6,7 +6,13 @@ $secondaryColor: #b6b4bd33;
 $white: #fff;
 $black: #111;
 $orange: #f46c38;
+// darker orange for backgrounds that carry white text, keeps contrast >= 4.5:1
+$orangeDeep: #c9541f;
 $error: #d9534f;
+
+// solid replacement for the old $secondaryColor text usages (which were 20%
+// alpha and failed WCAG contrast); $secondaryColor stays for backgrounds
+$sectionSubtitleColor: #98949f;
 
 $inputFocus: 0 0 5px #fc8a1e80;
 $inputErrorFocus: 0 0 5px #f6370c80;
@@ -16,12 +22,16 @@ $labelColor: #888;
   font-size: clamp(40px, 6vw, 90px);
   line-height: 1;
   font-weight: bold;
-  
-  p:first-child {
+
+  > * {
+    font-size: inherit;
+  }
+
+  > :first-child {
     color: $white;
   }
-  p:last-child {
-    color: $secondaryColor;
+  > :last-child {
+    color: $sectionSubtitleColor;
   }
 }
 

@@ -1,12 +1,5 @@
 @import './variables';
 
-@font-face {
-  font-family: 'Poppins';
-  src: url('../fonts/Poppins-Regular.ttf') format('tff');
-  font-weight: 400;
-  font-style: normal;
-}
-
 *,
 *::before,
 *::after {
@@ -31,7 +24,7 @@ button, input, textarea {
 
 body {
   background-color: $primaryBackgroundColor;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Poppins', 'Poppins Fallback', sans-serif;
 }
 
 ::selection {
@@ -81,6 +74,7 @@ html:focus-within {
       &__placeholder {
         width: 100%;
         height: 100%;
+        /* opacity instead of background-color so the animation runs on the compositor */
         animation: pulse 2s infinite;
       }
 
@@ -178,12 +172,12 @@ html:focus-within {
 
 @keyframes pulse {
   0% {
-    background-color: #353434;
+    opacity: 1;
   }
   50% {
-    background-color: #282727;
+    opacity: 0.55;
   }
   100% {
-    background-color: #353434;
+    opacity: 1;
   }
 }

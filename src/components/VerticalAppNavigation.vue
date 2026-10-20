@@ -1,13 +1,13 @@
 <template>
-  <div class="vertical-navigation" id="verticalNavigation">
+  <nav class="vertical-navigation" id="verticalNavigation" aria-label="Primary section navigation">
     
-    <a v-for="nav in $verticalNavigationLinks" :href="nav.href" :key="nav.name">
+    <a v-for="nav in $verticalNavigationLinks" :href="nav.href" :key="nav.name" :aria-label="nav.name">
       <div class="vertical-navigation__tooltip">
-        <img :src="viewedSection === nav.href ? nav.activeIcon : nav.icon" alt="navigation icon">
+        <img :src="viewedSection === nav.href ? nav.activeIcon : nav.icon" alt="">
         <div class="tooltip-text">{{ nav.name }}</div>
       </div>
     </a>
-  </div>
+  </nav>
 </template>
 
 <script setup>

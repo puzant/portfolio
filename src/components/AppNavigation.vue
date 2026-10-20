@@ -1,12 +1,12 @@
 <template>
-  <div class="navigation" id="navbar">
-    <a v-for="nav in navigation" :href="nav.href" :key="nav.name">
+  <nav class="navigation" id="navbar" aria-label="Section navigation">
+    <a v-for="nav in navigation" :href="nav.href" :key="nav.name" :aria-label="nav.name">
       <div class="tooltip">
-        <img :src="nav.icon" alt="navigation icon">
+        <img :src="nav.icon" alt="">
         <div class="tooltip-text">{{ nav.name }}</div>
       </div>
     </a>
-  </div>
+  </nav>
 </template>
 
 <script>

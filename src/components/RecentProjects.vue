@@ -1,7 +1,7 @@
 <template>
   <div id="projects" class="container">
     <div class="title">
-      <p>RECENT</p>
+      <h2>RECENT</h2>
       <p>PROJECTS</p>
     </div>
 
@@ -10,7 +10,7 @@
         
         <div class="inner-container">
           <div class="project-preview">
-            <img :src="project.preview" :alt="project.description">
+            <img :src="project.preview" :alt="project.description" loading="lazy" decoding="async">
           </div>
 
           <div class="project-info">
@@ -19,7 +19,7 @@
           </div>
         </div>
 
-        <img class="arrow" src="@/assets/icons/arrow-up-right.svg" alt="arrrow up icon">
+        <img class="arrow" src="@/assets/icons/arrow-up-right.svg" alt="">
       </a>
     </div>
 

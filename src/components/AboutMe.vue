@@ -1,5 +1,6 @@
 <template>
   <div class="container" id="about">
+    <h1 class="visually-hidden">Puzant Bakjejian — Tech Consultant &amp; Full Stack Engineer</h1>
     <div class="container__title">
       <p>FULL STACK</p>
       <p>ENGINEER</p>

@@ -16,7 +16,7 @@ export default {
     return {
       navigation: [
         {href: '#home', name: 'Home', icon: require('@/assets/icons/home-icon.svg')},
-        {href: '#services', name: 'Home', icon: require('@/assets/icons/services-icon.svg')},
+        {href: '#services', name: 'Services', icon: require('@/assets/icons/services-icon.svg')},
         {href: '#caseStudies', name: 'Case Studies', icon: require('@/assets/icons/case-study-icon.svg')},
         {href: '#projects', name: 'Projects', icon: require('@/assets/icons/project-icon.svg')},
         {href: '#stories', name: 'Publications', icon: require('@/assets/icons/write-icon.svg')},

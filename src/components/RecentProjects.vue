@@ -6,20 +6,18 @@
     </div>
 
     <div class="projects-container">
-      <a class="project" v-for="project in projects.filter(p => p.active)" :key="project" :href="project.link" target="_blank">
-        
-        <div class="inner-container">
-          <div class="project-preview">
-            <img :src="project.preview" :alt="project.description">
-          </div>
-
-          <div class="project-info">
-            <p>{{ project.name }}</p>
-            <p>{{ project.description }}</p>
-          </div>
+      <a class="project" v-for="project in projects.filter(p => p.active)" :key="project._id || project.name" :href="project.link" target="_blank">
+        <div class="project-preview">
+          <img :src="project.preview" :alt="project.description">
         </div>
 
-        <img class="arrow" src="@/assets/icons/arrow-up-right.svg" alt="arrrow up icon">
+        <div class="project-info">
+          <div class="project-info__head">
+            <p>{{ project.name }}</p>
+            <img class="arrow" src="@/assets/icons/arrow-up-right.svg" alt="" aria-hidden="true">
+          </div>
+          <p>{{ project.description }}</p>
+        </div>
       </a>
     </div>
 
@@ -44,78 +42,72 @@ defineProps({
   }
 
   .projects-container {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
     margin: 10px 0;
 
     @media (min-width: 768px) {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
       margin: 30px 0;
     }
-    
+
     .project {
       display: flex;
-      align-items: center;
-      justify-content: space-between;
+      flex-direction: column;
+      gap: 16px;
       color: $white;
       cursor: pointer;
       border-radius: 16px;
       transition: 0.3s ease, box-shadow 0.3s ease;
-      padding: 16px 10px;
+      padding: 16px;
       text-decoration: none;
       border: 1px solid transparent;
 
       @include liftEffect;
 
-      .inner-container {
+      .project-preview {
+        aspect-ratio: 16 / 9;
+        overflow: hidden;
         width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: left;
-        gap: 20px;
-        
-        @media (min-width: 768px) {
-          flex-direction: row;
-        }
+        border-radius: 8px;
 
-        .project-preview {
-          aspect-ratio: 16 / 9;
-          overflow: hidden;
+        img {
+          height: 100%;
           width: 100%;
-          flex-shrink: 0;
-          border-radius: 8px;
-
-          @media (min-width: 768px) {
-            width: 160px;
-          }
-
-          img {
-            height: 100%;
-            width: 100%;
-            object-fit: cover;
-            display: block;
-          }
-        }
-
-        .project-info {
-          display: flex;
-          flex-direction: column;
-          gap: 3px;
-
-          p:first-child {
-            font-size: 24px;
-          }
-
-          p:nth-child(2) {
-            color: $primaryColor;
-          }
+          object-fit: cover;
+          display: block;
         }
       }
-      .arrow {
-        align-self: flex-start;
-        display: none;
 
-        @media (min-width: 768px) {
-          display: block
+      .project-info {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+
+        &__head {
+          display: flex;
+          align-items: flex-start;
+          justify-content: space-between;
+          gap: 12px;
+
+          p {
+            font-size: 22px;
+            line-height: 1.2;
+          }
+
+          .arrow {
+            width: 18px;
+            height: 18px;
+            flex-shrink: 0;
+            margin-top: 2px;
+          }
+        }
+
+        > p {
+          color: $primaryColor;
+          line-height: 1.5;
         }
       }
     }

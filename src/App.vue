@@ -11,10 +11,11 @@
       
         <div class="main-sections">
           <AboutMe ref="aboutMeRef" />
-          <RecentProjects ref="projectsRef" :projects="projects" />
-          <TechSkills ref="skillsRef" />
+          <ConsultingServices ref="servicesRef" />
           <CaseStudies ref="caseStudiesRef" :caseStudies="caseStudies" />
+          <RecentProjects ref="projectsRef" :projects="projects" />
           <MyPublications ref="publicationsRef" :publications="publications" />
+          <!-- <TechSkills ref="skillsRef" /> -->
           <ContactForm ref="contactFormRef" />
         </div>
       </div>
@@ -32,23 +33,25 @@ import ContactForm from '@/components/ContactForm.vue'
 import AboutMe from '@/components/AboutMe.vue'
 import RecentProjects from '@/components/RecentProjects.vue'
 import AppFooter from '@/components/AppFooter.vue'
-import TechSkills from '@/components/TechSkills.vue'
+// import TechSkills from '@/components/TechSkills.vue'
 import MyPublications from '@/components/MyPublications.vue'
 import TravelImages from '@/components/TravelImages.vue'
 import CaseStudies from '@/components/CaseStudies.vue'
+import ConsultingServices from '@/components/ConsultingServices.vue'
 
 const navigationRef = ref(null)
 const verticalNavigationRef = ref(null)
 const sidebarRef = ref(null)
 const projectsRef = ref(null)
 const aboutMeRef = ref(null)
+const servicesRef = ref(null)
 const skillsRef = ref(null)
 const caseStudiesRef = ref(null)
 const publicationsRef = ref(null)
 const contactFormRef = ref(null)
 const loading = ref(false)
 
-const refs = [sidebarRef, projectsRef, aboutMeRef, skillsRef, caseStudiesRef, publicationsRef, contactFormRef, navigationRef, verticalNavigationRef]
+const refs = [sidebarRef, projectsRef, aboutMeRef, servicesRef, skillsRef, caseStudiesRef, publicationsRef, contactFormRef, navigationRef, verticalNavigationRef]
 // used to check which scetion is the user currently is on
 let viewedSection = ref(null)
 

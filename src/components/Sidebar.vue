@@ -9,7 +9,7 @@
       <div class="bio">
         <div class="intro">
           <div>Puzant Bakjejian</div>
-          <div>Full Stack Engineer, building immersive digital experiences.</div>
+          <div>Technical Consultant · Full Stack Engineer</div>
         </div>
 
         <div class="social-media-links">

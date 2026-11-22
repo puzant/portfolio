@@ -37,9 +37,8 @@ $labelColor: #888;
   &:hover {
     transform: translateY(-5px);
     background-color: #1A1817;
-    box-shadow: 0 8px 15px #00000033;
-    border: 1px solid $orange;
-    border-left-width: 8px;
+    box-shadow: 0 8px 15px #00000033, inset 8px 0 0 $orange;
+    border-color: $orange;
   }
 }
 

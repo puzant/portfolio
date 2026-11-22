@@ -33,10 +33,11 @@ app.config.globalProperties.$skills = [
 
 app.config.globalProperties.$verticalNavigationLinks = [
   {href: '#about', name: 'Home', icon: require('@/assets/icons/home-icon.svg'), activeIcon: require('@/assets/icons/home-active-icon.svg')},
-  {href: '#projects', name: 'Projects', icon: require('@/assets/icons/project-icon.svg'), activeIcon: require('@/assets/icons/project-active-icon.svg')},
-  {href: '#skills', name: 'Skills', icon: require('@/assets/icons/skill-icon.svg'), activeIcon: require('@/assets/icons/skill-active-icon.svg')},
+  {href: '#services', name: 'Services', icon: require('@/assets/icons/services-icon.svg'), activeIcon: require('@/assets/icons/services-active-icon.svg')},
   {href: '#caseStudies', name: 'Case Studies', icon: require('@/assets/icons/case-study-icon.svg'), activeIcon: require('@/assets/icons/case-study-active-icon.svg')},
+  {href: '#projects', name: 'Projects', icon: require('@/assets/icons/project-icon.svg'), activeIcon: require('@/assets/icons/project-active-icon.svg')},
   {href: '#stories', name: 'Publications', icon: require('@/assets/icons/write-icon.svg'), activeIcon: require('@/assets/icons/write-active-icon.svg')},
+  // {href: '#skills', name: 'Skills', icon: require('@/assets/icons/skill-icon.svg'), activeIcon: require('@/assets/icons/skill-active-icon.svg')},
   {href: '#contact', name: 'Contact', icon: require('@/assets/icons/contact-icon.svg'), activeIcon: require('@/assets/icons/active-contact-icon.svg')}
 ]
 

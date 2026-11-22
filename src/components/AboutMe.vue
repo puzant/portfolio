@@ -2,14 +2,16 @@
   <div class="container" id="about">
     <h1 class="visually-hidden">Puzant Bakjejian — Tech Consultant &amp; Full Stack Engineer</h1>
     <div class="container__title">
-      <p>FULL STACK</p>
-      <p>ENGINEER</p>
+      <p>TECH</p>
+      <p>CONSULTANT</p>
     </div>
 
+    <p class="container__eyebrow">Full stack engineer · Architecture &amp; delivery advisor</p>
+
     <div class="container__intro">
-      👋 With over six years of professional experience in software development, 
-      I possess expertise in a range of JavaScript frameworks, including React, Vue, and Angular. 
-      My proficiency extends beyond the client-side as I also have a strong grasp of back-end technologies such as Node.js, MySQL, and MongoDB.
+      I help founders and product teams make confident technical decisions — from untangling
+      legacy systems to scaling architecture and shipping products that last. Six years of
+      hands-on engineering across React, Vue, PHP and Node.js.
     </div>
 
     <div class="stats-container">
@@ -31,10 +33,10 @@
         <img src="@/assets/icons/stack-icon.svg" alt="stack icon">
         
         <a href="#contact">
-          <span class="line-break">Let’s build something</span>
+          <span class="line-break">Book a</span>
           
           <div class="work-together-box">
-            <span>extraordinary together!</span>
+            <span>discovery call</span>
             <img src="@/assets/icons/arrow-down-icon.svg" alt="arrow down icon">
           </div>
         </a>
@@ -53,6 +55,14 @@
     @include sectionTitle;
   }
 
+  &__eyebrow {
+    color: $orange;
+    font-size: clamp(13px, 3vw, 15px);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-top: 12px;
+  }
+
   &__intro {
     color: $primaryColor;
     line-height: 1.6;
@@ -66,11 +76,7 @@
 
   .stats-container {
     @include responsive-flex-container;
-    margin: 10px 0;
-
-    @media (min-width: 768px) {
-      margin: 60px 0;
-    }
+    margin: 20px 0;
 
     .line-break {
       display: block;

@@ -6,8 +6,8 @@
     <TravelImages :images="placeholderOrImages" />
 
     <div class="main-container">
-      <div class="sidebar-items-container">
-        <SideBar ref="sidebarRef" />
+      <!-- <div class="sidebar-items-container"> -->
+        <!-- <SideBar ref="sidebarRef" /> -->
       
         <div class="main-sections">
           <AboutMe ref="aboutMeRef" />
@@ -18,7 +18,7 @@
           <!-- <TechSkills ref="skillsRef" /> -->
           <ContactForm ref="contactFormRef" />
         </div>
-      </div>
+      <!-- </div> -->
       <AppFooter />
     </div>
   </div>
@@ -28,7 +28,7 @@
 import { onMounted, onUnmounted, onUpdated, nextTick, ref, computed } from 'vue'
 import AppNavigation from '@/components/AppNavigation.vue'
 import VerticalAppNavigation from '@/components/VerticalAppNavigation.vue'
-import SideBar from '@/components/Sidebar.vue'
+// import SideBar from '@/components/Sidebar.vue'
 import ContactForm from '@/components/ContactForm.vue'
 import AboutMe from '@/components/AboutMe.vue'
 import RecentProjects from '@/components/RecentProjects.vue'

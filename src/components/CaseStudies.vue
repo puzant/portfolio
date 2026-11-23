@@ -58,13 +58,14 @@ function formattedDate(date) {
   }
 
   .case-studies-container {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr;
     gap: 15px;
     margin: 10px 0;
 
     @media (min-width: 768px) {
       margin: 20px 0;
+      grid-template-columns: repeat(2, 1fr);
     }
 
     .case-study {

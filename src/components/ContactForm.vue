@@ -5,35 +5,68 @@
       <p>TOGETHER</p>
     </div>
 
-    <form @submit.prevent="handleSubmit" id="contactForm">
-      <div class="container">
-        <div>
-          <label for="full-name">Full Name</label>
-          <input :class="{ 'error-input': errors.fullName.message }" v-model="formData.fullName" type="text" id="full-name" name="full-name" placeholder="Your Full Name">
-          <span v-if="errors.fullName.message" class="error">{{ errors.fullName.message }}</span>
+    <div class="contact-layout">
+      <form @submit.prevent="handleSubmit" id="contactForm">
+        <div class="container">
+          <div>
+            <label for="first-name">First Name</label>
+            <input :class="{ 'error-input': errors.firstName.message }" v-model="formData.firstName" type="text" id="first-name" name="first-name" placeholder="First name">
+            <span v-if="errors.firstName.message" class="error">{{ errors.firstName.message }}</span>
+          </div>
+
+          <div>
+            <label for="last-name">Last Name</label>
+            <input :class="{ 'error-input': errors.lastName.message }" v-model="formData.lastName" type="text" id="last-name" name="last-name" placeholder="Last name">
+            <span v-if="errors.lastName.message" class="error">{{ errors.lastName.message }}</span>
+          </div>
         </div>
-        
-        <div>
+
+        <div class="field">
           <label for="email">Email</label>
-          <input :class="{ 'error-input': errors.email.message }" v-model="formData.email" type="email" id="email" name="email" placeholder="Your Email">
+          <input :class="{ 'error-input': errors.email.message }" v-model="formData.email" type="email" id="email" name="email" placeholder="Your email address">
           <span v-if="errors.email.message" class="error">{{ errors.email.message }}</span>
         </div>
-      </div>
-        
-      <div class="subject">
-        <label for="subject">Message</label>
-        <textarea :class="{ 'error-input': errors.message.message }" v-model="formData.message" id="subject" name="message" placeholder="Message" rows="5"></textarea>
-        <span v-if="errors.message.message" class="error">{{ errors.message.message }}</span>
-      </div>
-        
-      <button type="submit" :disabled="!isFormValid">
-        <span>Send</span>
-        <img v-if="!isSending" src="@/assets/icons/send-icon.svg" alt="send email icon">
-        <img v-else class="loading-indicator" src="@/assets/icons/loading-indicator.svg" alt="loading indicator">
-      </button>
 
-      <p>{{ contactStatusMessage }}</p>
-    </form>
+        <div class="subject">
+          <label for="message">Message</label>
+          <textarea :class="{ 'error-input': errors.message.message }" v-model="formData.message" id="message" name="message" placeholder="Tell me about your project or challenge" rows="7"></textarea>
+          <span v-if="errors.message.message" class="error">{{ errors.message.message }}</span>
+        </div>
+          
+        <button type="submit" :disabled="!isFormValid">
+          <span>Send</span>
+          <img v-if="!isSending" src="@/assets/icons/send-icon.svg" alt="send email icon">
+          <img v-else class="loading-indicator" src="@/assets/icons/loading-indicator.svg" alt="loading indicator">
+        </button>
+
+        <p v-if="contactStatusMessage">{{ contactStatusMessage }}</p>
+      </form>
+
+      <aside class="contact-side">
+        <p class="contact-side__eyebrow">Other ways to connect</p>
+        <h3 class="contact-side__title">Prefer a direct message?</h3>
+        <p class="contact-side__text">If a form isn’t your thing, you can also reach me through these channels. I’m always open to a good technical conversation.</p>
+
+        <div class="contact-side__links">
+          <a href="mailto:pbakjejian@hotmail.com" target="_blank" rel="noopener noreferrer">
+            <img src="@/assets/icons/email-icon.svg" alt="">
+            <span>Email</span>
+          </a>
+          <a href="https://www.linkedin.com/in/puzant-b-006426108/" target="_blank" rel="noopener noreferrer">
+            <img src="@/assets/icons/linkedin-logo.svg" alt="">
+            <span>LinkedIn</span>
+          </a>
+          <a href="https://github.com/puzant" target="_blank" rel="noopener noreferrer">
+            <img src="@/assets/icons/github-logo.svg" alt="">
+            <span>GitHub</span>
+          </a>
+          <a href="https://x.com/puzantBakjejian" target="_blank" rel="noopener noreferrer">
+            <img src="@/assets/icons/x-logo.svg" alt="">
+            <span>X</span>
+          </a>
+        </div>
+      </aside>
+    </div>
   </div>
 </template>
 
@@ -48,12 +81,14 @@ export default {
       contactStatusMessage: '',
       disableValidation: false,
       formData: {
-        fullName: '',
+        firstName: '',
+        lastName: '',
         email: '',
         message: ''
       },
       errors: {
-        fullName: { message: '', invalid: true },
+        firstName: { message: '', invalid: true },
+        lastName: { message: '', invalid: true },
         email: { message: '', invalid: true },
         message: { message: '', invalid: true },
       },
@@ -62,11 +97,14 @@ export default {
     }
   },
   watch: {
+    'formData.firstName'() {
+      if (!this.isClearingForm) this.validateFirstName()
+    },
+    'formData.lastName'() {
+      if (!this.isClearingForm) this.validateLastName()
+    },
     'formData.email'() {
       if (!this.isClearingForm) this.validateEmeail()
-    },
-    'formData.fullName'() {
-      if (!this.isClearingForm) this.validateFullName()
     },
     'formData.message'() {
       if (!this.isClearingForm) this.validateMessage()
@@ -95,13 +133,22 @@ export default {
         this.errors.email.invalid = false
       }
     },
-    validateFullName() {
-      if (!this.formData.fullName || this.formData.fullName.trim() === '') {
-        this.errors.fullName.message = 'Full Name is required'
-        this.errors.fullName.invalid = true
+    validateFirstName() {
+      if (!this.formData.firstName || this.formData.firstName.trim() === '') {
+        this.errors.firstName.message = 'First name is required'
+        this.errors.firstName.invalid = true
       } else {
-        this.errors.fullName.message = ''
-        this.errors.fullName.invalid = false
+        this.errors.firstName.message = ''
+        this.errors.firstName.invalid = false
+      }
+    },
+    validateLastName() {
+      if (!this.formData.lastName || this.formData.lastName.trim() === '') {
+        this.errors.lastName.message = 'Last name is required'
+        this.errors.lastName.invalid = true
+      } else {
+        this.errors.lastName.message = ''
+        this.errors.lastName.invalid = false
       }
     },
     validateMessage() {
@@ -114,6 +161,7 @@ export default {
         this.errors.message.invalid = false
       }
     },
+
     async handleSubmit() {
       if (this.isFormValid) {
         this.isSending = true
@@ -122,7 +170,7 @@ export default {
           process.env.VUE_APP_SERVICE_ID,
           process.env.VUE_APP_TEMPLATE_ID,
           {
-            name: this.formData.fullName,
+            name: `${this.formData.firstName} ${this.formData.lastName}`.trim(),
             email: this.formData.email,
             message: this.formData.message
           },
@@ -138,7 +186,8 @@ export default {
           this.isClearingForm = true
           this.isSending = false
 
-          this.formData.fullName = ''
+          this.formData.firstName = ''
+          this.formData.lastName = ''
           this.formData.email = ''
           this.formData.message = ''
           this.resetErrors()
@@ -162,14 +211,94 @@ export default {
     @include sectionTitle;
   }
 
-  form {
-    display: flex;
-    flex-direction: column;
+  .contact-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
     margin: 10px 0;
 
     @media (min-width: 768px) {
       margin: 50px 0;
     }
+
+    @media (min-width: 1024px) {
+      grid-template-columns: minmax(0, 1fr) 320px;
+      gap: 32px;
+      align-items: stretch;
+    }
+  }
+
+  .contact-side {
+    background-color: $secondaryBackgroundColor;
+    border: 1px solid $secondaryColor;
+    border-radius: 16px;
+    padding: 24px;
+
+    &__eyebrow {
+      color: $orange;
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    &__title {
+      color: $white;
+      font-size: 24px;
+      line-height: 1.2;
+      margin-bottom: 12px;
+    }
+
+    &__text {
+      color: $primaryColor;
+      font-size: 14px;
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+
+    &__links {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+
+      a {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: $white;
+        text-decoration: none;
+        padding: 10px 12px;
+        border-radius: 10px;
+        border: 1px solid $secondaryColor;
+        transition: border-color 0.2s ease, transform 0.2s ease;
+
+        &:hover {
+          border-color: $orange;
+          transform: translateY(-1px);
+        }
+
+        img {
+          width: 18px;
+          height: 18px;
+        }
+
+        span {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 0;
+    background-color: $secondaryBackgroundColor;
+    border: 1px solid $secondaryColor;
+    border-radius: 16px;
+    padding: 24px;
 
     .error {
       color: $error;
@@ -179,13 +308,14 @@ export default {
     }
     
     .container {
+      display: flex;
       flex-direction: column;
+      gap: 10px; 
 
       @media (min-width: 768px) {
         display: flex;
-        gap: 12px;
+        flex-direction: row;
       }
-
 
       > div {
         width: 100%;
@@ -212,10 +342,33 @@ export default {
       }
     }
 
-    .subject {
+    .field {
       display: flex;
       flex-direction: column;
       margin: 20px 0;
+      gap: 10px;
+
+      label {
+        color: $labelColor;
+        font-size: 12px;
+      }
+
+      input {
+        @include styledInput;
+        &:focus {
+          @include inputFocus;
+        }
+      }
+
+      input.error-input {
+        border-color: $error;
+        box-shadow: $inputErrorFocus;
+      }
+    }
+
+    .subject {
+      display: flex;
+      flex-direction: column;
       gap: 10px;
 
       label {
@@ -251,6 +404,11 @@ export default {
       cursor: pointer;
       font-size: 18px;
       width: 100%;
+      margin-top: 20px;
+
+      @media (min-width: 768px) {
+        margin-top: auto;
+      }
 
       &:disabled {
         opacity: .6;
@@ -277,14 +435,13 @@ export default {
 
   }
 
-
-@keyframes rotate180 {
-  from {
-    transform: rotate(0deg);
+  @keyframes rotate180 {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
   }
-  to {
-    transform: rotate(360deg);
-  }
-}
 }
 </style>

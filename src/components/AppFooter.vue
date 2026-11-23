@@ -1,39 +1,39 @@
 <template>
-  <div class="footer-container">
-    <div>
-      <span>Made with </span>
-      <img src="@/assets/icons/heart-icon.svg" alt="heart icon">
-    </div>
-
-    <div>
-      <span>| Powered By </span>
-      <img src="@/assets/icons/vue-logo.svg" alt="vuejs icon">
-    </div>
-  </div>
+  <footer class="footer-container">
+    <p>&copy; {{ year }} Puzant Bakjejian <span class="separator">·</span> Technical Consultant</p>
+  </footer>
 </template>
+
+<script>
+export default {
+  name: 'AppFooter',
+  data() {
+    return {
+      year: new Date().getFullYear()
+    }
+  }
+}
+</script>
 
 <style scoped lang="scss">
 @import '@/assets/styles/variables';
 
 .footer-container {
-  justify-content: center;
-  padding: 10px;
+  padding: 28px 16px;
   margin: 0 auto;
-  position: static;
-  bottom: 0;
-  color: $primaryColor;
-  display: flex;
-  font-size: clamp(14px, 4vw, 22px);
-  gap: 10px;
+  color: rgba($primaryColor, 0.75);
+  text-align: center;
+  font-size: 12px;
+  letter-spacing: 0.04em;
 
-  div {
-    display: flex;
-    align-items: center;
-    gap: 8px;
+  p {
+    margin: 0;
+  }
 
-    img {
-      height: 20px;
-    }
+  .separator {
+    margin: 0 8px;
+    color: $orange;
+    opacity: 0.85;
   }
 }
 </style>

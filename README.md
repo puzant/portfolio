@@ -13,7 +13,7 @@
 A modern and responsive portfolio showcasing projects, skills, and travels. Built with Vue 3, SCSS, Node.js, and Express.js, it features lazy loading with Intersection Observer API, seamless animations, and Cloudinary integration.
 
 ## Preview
-![app-screenshot](./public/portfolio-screenshot.png)
+![app-screenshot](./public/portfolio-screenshot-2.png)
 
 ## ✨ Features
 **Intersection Observer for Lazy Loading**

@@ -55,12 +55,12 @@ const formattedPublications = computed(() => {
   }
 
   .publications-container {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr;
     margin: 10px 0;
     
     @media (min-width: 768px) {
-      margin: 20px 0;
+      grid-template-columns: repeat(3, 1fr);
     }
 
     .story {

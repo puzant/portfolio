@@ -48,7 +48,7 @@ defineProps({
     margin: 10px 0;
 
     @media (min-width: 768px) {
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 24px;
       margin: 30px 0;
     }

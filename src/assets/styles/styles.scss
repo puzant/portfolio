@@ -93,12 +93,14 @@ html:focus-within {
       &__placeholder {
         width: 100%;
         height: 100%;
-        animation: pulse 2s infinite;
+        background: linear-gradient(110deg, #2a2827 8%, #3a3736 18%, #2a2827 33%);
+        background-size: 200% 100%;
+        animation: shimmer 1.6s linear infinite;
       }
 
-      &:hover {
+      &:not(.travel-image__image--placeholder):hover {
         transform: scale(1.1) rotate(0deg) translateZ(0px);
-        transition: transform 0.2s infinite;
+        transition: transform 0.2s ease;
 
         .travel-image__overlay {
           opacity: 1;
@@ -202,14 +204,8 @@ html:focus-within {
   }
 }
 
-@keyframes pulse {
-  0% {
-    background-color: #353434;
-  }
-  50% {
-    background-color: #282727;
-  }
-  100% {
-    background-color: #353434;
+@keyframes shimmer {
+  to {
+    background-position-x: -200%;
   }
 }

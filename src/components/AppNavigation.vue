@@ -38,6 +38,14 @@ export default {
   width: min(560px, calc(100% - 24px));
   margin: 24px auto;
 
+  @media (max-width: 768px) {
+    position: sticky;
+    top: 12px;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+    background-color: rgba($secondaryBackgroundColor, 0.95);
+  }
+
   &__item {
     display: flex;
     flex-direction: column;

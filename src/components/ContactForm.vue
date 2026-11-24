@@ -33,7 +33,7 @@
           <span v-if="errors.message.message" class="error">{{ errors.message.message }}</span>
         </div>
           
-        <button type="submit" :disabled="!isFormValid">
+        <button type="submit" :disabled="isSending">
           <span>Send</span>
           <img v-if="!isSending" src="@/assets/icons/send-icon.svg" alt="send email icon">
           <img v-else class="loading-indicator" src="@/assets/icons/loading-indicator.svg" alt="loading indicator">
@@ -79,7 +79,7 @@ export default {
     return {
       isSending: false,
       contactStatusMessage: '',
-      disableValidation: false,
+      hasSubmitted: false,
       formData: {
         firstName: '',
         lastName: '',
@@ -98,16 +98,16 @@ export default {
   },
   watch: {
     'formData.firstName'() {
-      if (!this.isClearingForm) this.validateFirstName()
+      if (this.hasSubmitted && !this.isClearingForm) this.validateFirstName()
     },
     'formData.lastName'() {
-      if (!this.isClearingForm) this.validateLastName()
+      if (this.hasSubmitted && !this.isClearingForm) this.validateLastName()
     },
     'formData.email'() {
-      if (!this.isClearingForm) this.validateEmeail()
+      if (this.hasSubmitted && !this.isClearingForm) this.validateEmeail()
     },
     'formData.message'() {
-      if (!this.isClearingForm) this.validateMessage()
+      if (this.hasSubmitted && !this.isClearingForm) this.validateMessage()
     }
   },
   computed: {
@@ -163,40 +163,55 @@ export default {
     },
 
     async handleSubmit() {
-      if (this.isFormValid) {
-        this.isSending = true
+      this.hasSubmitted = true
+      this.contactStatusMessage = ''
 
-        emailjs.send(
-          process.env.VUE_APP_SERVICE_ID,
-          process.env.VUE_APP_TEMPLATE_ID,
-          {
-            name: `${this.formData.firstName} ${this.formData.lastName}`.trim(),
-            email: this.formData.email,
-            message: this.formData.message
-          },
-          process.env.VUE_APP_PUBLIC_ID,
-        ).then(res => {
-          console.log("You have successfully submitted your message", res.text)
-          this.contactStatusMessage = 'Thanks for reaching out! you’re message was well and will get back to you soon. 📩'
-        },
-          (err) => {
-            console.log("This form failed to submit, please kindly check your internet connection", err)
-          })
-        .finally(() => {
-          this.isClearingForm = true
-          this.isSending = false
+      this.validateFirstName()
+      this.validateLastName()
+      this.validateEmeail()
+      this.validateMessage()
 
-          this.formData.firstName = ''
-          this.formData.lastName = ''
-          this.formData.email = ''
-          this.formData.message = ''
-          this.resetErrors()
-
-          this.$nextTick(() => {
-            this.isClearingForm = false
-          });
-        })
+      if (!this.isFormValid) {
+        this.contactStatusMessage = 'Please fix the highlighted fields and try again.'
+        return
       }
+
+      this.isSending = true
+
+      emailjs.send(
+        process.env.VUE_APP_SERVICE_ID,
+        process.env.VUE_APP_TEMPLATE_ID,
+        {
+          name: `${this.formData.firstName} ${this.formData.lastName}`.trim(),
+          firstname: this.formData.firstName,
+          lastname: this.formData.lastName,
+          email: this.formData.email,
+          message: this.formData.message
+        },
+        process.env.VUE_APP_PUBLIC_ID,
+      ).then(res => {
+        console.log("You have successfully submitted your message", res.text)
+        this.contactStatusMessage = 'Thanks for reaching out! your message was sent and I will get back to you soon. 📩'
+      },
+        (err) => {
+          console.log("This form failed to submit, please kindly check your internet connection", err)
+          this.contactStatusMessage = 'Something went wrong. Please try again in a moment.'
+        })
+      .finally(() => {
+        this.isClearingForm = true
+        this.isSending = false
+
+        this.formData.firstName = ''
+        this.formData.lastName = ''
+        this.formData.email = ''
+        this.formData.message = ''
+        this.resetErrors()
+        this.hasSubmitted = false
+
+        this.$nextTick(() => {
+          this.isClearingForm = false
+        });
+      })
     },
   }
 }
@@ -304,6 +319,7 @@ export default {
       color: $error;
       font-size: 0.875rem;
       margin-top: 0.25rem;
+      margin-bottom: 12px;
       display: block;
     }
     
